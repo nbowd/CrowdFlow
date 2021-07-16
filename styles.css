@@ -1,0 +1,43 @@
+.header-image {
+	width: 100%;
+}
+
+.header-caption {
+	font-size: 12px;
+	margin-top: 0;
+	text-align: right;
+}
+
+.container {
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 1270px;
+	min-width: 320px;
+	font-family: 'Montserrat', sans-serif;
+	color: #02075d;
+}
+
+.nav-buttons {
+	text-align: center;
+	margin-top: 35px;
+}
+
+button {
+	margin-left: 10px;
+	margin-right: 10px;
+	background: none;
+	color: #02075d;
+	border: 2px solid;
+	padding: 1em 2em;
+	font-size: 1em;
+	transition: all 0.2s ease 0s;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+button:hover {
+	background: #02075d;
+	color: white;
+}
