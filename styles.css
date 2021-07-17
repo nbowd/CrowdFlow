@@ -24,20 +24,83 @@
 	margin-top: 35px;
 }
 
-button {
+.nav-buttons > p {
+	font-size: 15px;
+}
+
+.nav-button {
 	margin-left: 10px;
 	margin-right: 10px;
-	background: none;
-	color: #02075d;
+	background: #02075d;
+	color: white;
 	border: 2px solid;
-	padding: 1em 2em;
-	font-size: 1em;
+	padding: 25px 200px;
+	font-size: 20px;
 	transition: all 0.2s ease 0s;
 	border-radius: 5px;
 	cursor: pointer;
+	font-weight: bold;
+	min-width: 609px;
 }
 
 button:hover {
+	background: none;
+	color: #02075d;
+}
+
+form > div {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+select {
+	border-color: #02075d;
+	color: #02075d;
+}
+
+table {
+	border-collapse: collapse;
+	width: 100%;
+	margin-top: 30px;
+}
+
+th,
+td {
+	border: 1px solid;
+	border-collapse: collapse;
+	text-align: center;
+	height: 30px;
+}
+
+form {
+	margin-bottom: 20px;
+}
+
+#submit {
 	background: #02075d;
 	color: white;
+	border: 2px solid;
+	padding: 10px 20px;
+	font-size: 14px;
+	transition: all 0.2s ease 0s;
+	border-radius: 5px;
+	cursor: pointer;
+	font-weight: bold;
+}
+
+#submit:hover {
+	background: none;
+	color: #02075d;
+}
+
+.table-button {
+	background: #02075d;
+	color: white;
+	border: 2px solid;
+	padding: 10px 20px;
+	font-size: 14px;
+	transition: all 0.2s ease 0s;
+	border-radius: 5px;
+	cursor: pointer;
+	font-weight: bold;
 }
