@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+        <title>Jobs | CrowdFlow Ticketing</title>
+    </head>
+    <body>
+        <main class="container">
+            <h1>Job Titles</h1>
+            <p>Current roles at CrowdFlow</p>
+            <hr>
+            <h2>Create New Job</h2>
+            <form>
+                <div>
+                    <label for="title">Job Title:</label>
+                    <input type="text" name="title" id="title" required>
+                </div>
+                <div class='text-field'>
+                    <label for="description">Description:</label>
+                    <textarea name="description" id="description" required></textarea>
+                </div>
+                <br>
+                <input id="submit" type="submit" value="Submit">
+            </form>
+            <hr>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Job ID</th>
+                        <th>Job Title</th>
+                        <th>Description</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- SAMPLE DATA -->
+                    <tr>
+                        <td>1</td>
+                        <td>Ticket seller</td>
+                        <td>Points of sale at the venue, main function is to quickly make transactions 
+                            and to point the fan in the direction they need to go afterward
+                        </td>
+                        <td><button class="table-button">Edit</button><button class="table-button">Delete</button></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Senior Ticket Seller</td>
+                        <td>Handles bulk sales, vip tickets, special accommodations. Basically deals with any special cases that would slow down the Ticket Sellers</td>
+                        <td><button class="table-button">Edit</button><button class="table-button">Delete</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </main>
+        <!-- 
+            jobID: int, auto_increment, unique, not NULL, PK
+            title: varchar(70), not NULL 
+            description: varchar(200), not NULL ( a brief description of the job title/duties)
+            
+            -->
+    </body>
+</html>

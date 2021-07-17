@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="styles.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+        
+        <title>Fans | CrowdFlow Ticketing</title>
+    </head>
+    <body>
+        <main class="container">
+            <h1>Fans</h1>
+            <p>Register fans and manage their information.</p>
+            <hr>
+
+            <h2>Add New Fan</h2>
+            <form>
+            <div>
+                <label for="firstName">First Name:</label>
+                <input type="text" name="firstName" id="firstName" required>
+            </div>
+            <div>
+                <label for="lastName">Last Name:</label>
+                <input type="text" name="lastName" id="lastName" required>
+            </div>
+            <div>
+                <label for="gender">Gender:</label>
+                <input type="text" name="gender" id="gender" required>
+            </div>
+            <div>
+                <label for="birthdate">Birthdate:</label>
+                <input type="date" name="birthdate" id="birthdate" required>
+            </div>
+            <div>
+                <label for="phone">Phone Number:</label>
+                <input type="text" name="phone" id="phone">
+            </div>
+        
+            <div>
+                <label for="email">Email address:</label>
+                <input type="text" name="email" id="email">
+            </div>
+            <div>
+                <label for="membership">Membership:</label>
+                <input type="checkbox" name="membership" id="membership">
+            </div>
+            <div>
+                <label for="comments">Comments:</label>
+                <textarea name="comments" id="comments"></textarea>
+            </div>
+
+            <div>
+                <input id="submit" type="submit" value="Add">
+            </div>
+            </form>
+    
+            <hr>
+        <!-- Can be searched with an exact fanID 
+        or a more general search can be done using either first or last name-->
+            <h2>Search for Fan</h2>
+            <form>
+            <label for="id-search">Search by FanID:</label>
+            <input type='text' name ="id-search" id="id-search">
+            <p>OR</p>
+            <label for="filter">Search with filter:</label>
+            <input list="filter-opts" name="filter">
+            <datalist id="filter-opts">
+                <option value="First Name">
+                <option value="Last Name">
+            </datalist>
+            <br>
+            <input id="submit" type="submit" value="Search">
+            </form>
+        
+            <hr>
+
+            <table>
+            <thead>
+                <tr>
+                    <th>Fan ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Gender</th>
+                    <th>Birthdate</th>
+                    <th>Phone Number</th>
+                    <th>Email Address</th>
+                    <th>Membership</th>
+                    <th>Comments</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- SAMPLE DATA - This will be added using the DOM -->
+                <tr>
+                    <td>62</td>
+                    <td>Kanye</td>
+                    <td>West</td>
+                    <td>Male</td>
+                    <td>01/01/1911</td>
+                    <td>999-867-5309</td>
+                    <td>spamwelcome@gmail.com</td>
+                    <td>No</td>
+                    <td>Requires all staff to refer to him in third person</td>
+                    <td><button class="table-button">Edit</button><button class="table-button">Delete</button></td>
+                </tr
+                <tr>
+                    <td>112</td>
+                    <td>Ricky</td>
+                    <td>Bobby</td>
+                    <td>Male</td>
+                    <td>07/04/1969</td>
+                    <td>123-456-7890</td>
+                    <td>wannagofast@gmail.com</td>
+                    <td>Yes</td>
+                    <td>Under NO circumstances may Ricky be allowed near the tour busses</td>
+                    <td><button class="table-button">Edit</button><button class="table-button">Delete</button></td>
+                </tr>
+            </tbody>
+            </table>
+    </main>
+    <!-- 
+    fanID: int, auto increment, unique, not NULL, PK
+    firstName: varchar(50), not NULL
+    lastName: varchar(50), not NULL
+    gender: varchar(20), not NULL
+    birthdate: date, not NULL
+    phone: varchar(20)
+    email: varchar(70)
+    membership: bool, not NULL (True if premium member, False otherwise)
+    comments: varchar(200)  (Comments from venue on fan, not available to fan) 
+    -->
+    </body>
+</html>

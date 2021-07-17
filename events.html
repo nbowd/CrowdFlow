@@ -1,223 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-    <title>Events | CrowdFlow Ticketing</title>
-</head>
-<body>
-    <main class="container">
-    <h1>Events</h1>
-    <p>View, add, update, and delete events from the database.</p>
-    <hr>
-    <h2>Add New Event</h2>
-    <form>
-        <div>
-        <label for="eventName">Event</label>
-        <input type="text" name="eventName" id="eventName" min="1" max="50" required>
-        </div>
-        <div>
-        <label for="eventDay">Event Day</label>
-        <select name="eventDay" id="eventDay">
-            <option value="01">1</option>
-            <option value="02">2</option>
-            <option value="03">3</option>
-            <option value="04">4</option>
-            <option value="05">5</option>
-            <option value="06">6</option>
-            <option value="07">7</option>
-            <option value="08">8</option>
-            <option value="09">9</option>
-            <option value="10">10</option>
-            <option value="11">11</option>
-            <option value="12">12</option>
-            <option value="13">13</option>
-            <option value="14">14</option>
-            <option value="15">15</option>
-            <option value="16">16</option>
-            <option value="17">17</option>
-            <option value="18">18</option>
-            <option value="19">19</option>
-            <option value="20">20</option>
-            <option value="21">21</option>
-            <option value="22">22</option>
-            <option value="23">23</option>
-            <option value="24">24</option>
-            <option value="25">25</option>
-            <option value="26">26</option>
-            <option value="27">27</option>
-            <option value="28">28</option>
-            <option value="29">29</option>
-            <option value="30">30</option>
-            <option value="31">31</option>
-        </select>
-        <label for="eventMonth">Event Month</label>
-        <select name="eventMonth" id="eventMonth">
-            <option value="01">1</option>
-            <option value="02">2</option>
-            <option value="03">3</option>
-            <option value="04">4</option>
-            <option value="05">5</option>
-            <option value="06">6</option>
-            <option value="07">7</option>
-            <option value="08">8</option>
-            <option value="09">9</option>
-            <option value="10">10</option>
-            <option value="11">11</option>
-            <option value="12">12</option>
-        </select>
-        <label for="eventYear">Event Year</label>
-        <select name="eventYear" id="eventYear">
-            <option value="2022">2022</option>
-            <option value="2021">2021</option>
-            <option value="2020">2020</option>
-            <option value="2019">2019</option>
-            <option value="2018">2018</option>
-            <option value="2017">2017</option>
-            <option value="2016">2016</option>
-            <option value="2015">2015</option>
-            <option value="2014">2014</option>
-            <option value="2013">2013</option>
-            <option value="2012">2012</option>
-        </select>
-        <label for="time">Event Time</label>
-        <input type="time" name="time" id="time" required>
-        </div>
-        <div>
-        <label for="isCancelled">Cancelled?</label>
-        <select name="isCancelled" id="isCancelled">
-            <option value="1">Yes</option>
-            <option value="0">No</option>
-        </select>
-        </div>
-        <div>
-            <input type="submit" name="submit" id="submit" value="Add">
-        </div>
-    </form>
-    <hr>
-    <h2>Search by Date</h2>
-    <form>
-        <label for="dateFilter">Occurred/occurs</label>
-        <select name="dateFilter" id="dateFilter">
-            <option value="on">On</option>
-            <option value="before">Before</option>
-            <option value="after">After</option>
-        </select>
-        <label for="filterDay">Day</label>
-        <select name="filterDay" id="filterDay">
-            <option value="01">1</option>
-            <option value="02">2</option>
-            <option value="03">3</option>
-            <option value="04">4</option>
-            <option value="05">5</option>
-            <option value="06">6</option>
-            <option value="07">7</option>
-            <option value="08">8</option>
-            <option value="09">9</option>
-            <option value="10">10</option>
-            <option value="11">11</option>
-            <option value="12">12</option>
-            <option value="13">13</option>
-            <option value="14">14</option>
-            <option value="15">15</option>
-            <option value="16">16</option>
-            <option value="17">17</option>
-            <option value="18">18</option>
-            <option value="19">19</option>
-            <option value="20">20</option>
-            <option value="21">21</option>
-            <option value="22">22</option>
-            <option value="23">23</option>
-            <option value="24">24</option>
-            <option value="25">25</option>
-            <option value="26">26</option>
-            <option value="27">27</option>
-            <option value="28">28</option>
-            <option value="29">29</option>
-            <option value="30">30</option>
-            <option value="31">31</option>
-        </select>
-        <label for="filterMonth">Month</label>
-        <select name="filterMonth" id="filterMonth">
-            <option value="01">1</option>
-            <option value="02">2</option>
-            <option value="03">3</option>
-            <option value="04">4</option>
-            <option value="05">5</option>
-            <option value="06">6</option>
-            <option value="07">7</option>
-            <option value="08">8</option>
-            <option value="09">9</option>
-            <option value="10">10</option>
-            <option value="11">11</option>
-            <option value="12">12</option>
-        </select>
-        <label for="filterYear">Year</label>
-        <select name="filterYear" id="filterYear">
-            <option value="2022">2022</option>
-            <option value="2021">2021</option>
-            <option value="2020">2020</option>
-            <option value="2019">2019</option>
-            <option value="2018">2018</option>
-            <option value="2017">2017</option>
-            <option value="2016">2016</option>
-            <option value="2015">2015</option>
-            <option value="2014">2014</option>
-            <option value="2013">2013</option>
-            <option value="2012">2012</option>
-        </select>
-    </form>
-    <hr>
-    <table>
-        <thead>
-            <th>Event ID</th>
-            <th>Event Name</th>
-            <th>Event Day</th>
-            <th>Event Month</th>
-            <th>Event Year</th>
-            <th>Event Time</th>
-            <th>Cancelled?</th>
-            <th></th>
-            <th></th>
-        </thead>
-        <tr>
-            <th>84</th>
-            <td>Test Show 1</td>
-            <td>14</td>
-            <td>02</td>
-            <td>2013</td>
-            <td>19:30:00</td>
-            <td>0</td>
-            <td><button class = "table-button">Update</button></td>
-            <td><button class = "table-button">Remove</button></td>
-        </tr>
-        <tr>
-            <th>582</th>
-            <td>Test Show 2</td>
-            <td>17</td>
-            <td>06</td>
-            <td>2017</td>
-            <td>19:05:00</td>
-            <td>0</td>
-            <td><button class = "table-button">Update</button></td>
-            <td><button class = "table-button">Remove</button></td>
-        </tr>
-        <tr>
-            <th>978</th>
-            <td>Test Show 3</td>
-            <td>13</td>
-            <td>3</td>
-            <td>2020</td>
-            <td>20:00:00</td>
-            <td>1</td>
-            <td><button class = "table-button">Update</button></td>
-            <td><button class = "table-button">Remove</button></td>
-        </tr>
-    </table>
-    </main>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+        <title>Events | CrowdFlow Ticketing</title>
+    </head>
+    <body>
+        <main class="container">
+            <h1>Events</h1>
+            <p>View, add, update, and delete events from the database.</p>
+            <hr>
+            <h2>Add New Event</h2>
+            <form>
+                <div>
+                    <label for="eventName">Event</label>
+                    <input type="text" name="eventName" id="eventName" min="1" max="50" required>
+                </div>
+                <div>
+                    <label for="eventDay">Event Day</label>
+                    <select name="eventDay" id="eventDay">
+                        <option value="01">1</option>
+                        <option value="02">2</option>
+                        <option value="03">3</option>
+                        <option value="04">4</option>
+                        <option value="05">5</option>
+                        <option value="06">6</option>
+                        <option value="07">7</option>
+                        <option value="08">8</option>
+                        <option value="09">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
+                        <option value="16">16</option>
+                        <option value="17">17</option>
+                        <option value="18">18</option>
+                        <option value="19">19</option>
+                        <option value="20">20</option>
+                        <option value="21">21</option>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+                        <option value="25">25</option>
+                        <option value="26">26</option>
+                        <option value="27">27</option>
+                        <option value="28">28</option>
+                        <option value="29">29</option>
+                        <option value="30">30</option>
+                        <option value="31">31</option>
+                    </select>
+                    <label for="eventMonth">Event Month</label>
+                    <select name="eventMonth" id="eventMonth">
+                        <option value="01">1</option>
+                        <option value="02">2</option>
+                        <option value="03">3</option>
+                        <option value="04">4</option>
+                        <option value="05">5</option>
+                        <option value="06">6</option>
+                        <option value="07">7</option>
+                        <option value="08">8</option>
+                        <option value="09">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+                    <label for="eventYear">Event Year</label>
+                    <select name="eventYear" id="eventYear">
+                        <option value="2022">2022</option>
+                        <option value="2021">2021</option>
+                        <option value="2020">2020</option>
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <option value="2017">2017</option>
+                        <option value="2016">2016</option>
+                        <option value="2015">2015</option>
+                        <option value="2014">2014</option>
+                        <option value="2013">2013</option>
+                        <option value="2012">2012</option>
+                    </select>
+                    <label for="time">Event Time</label>
+                    <input type="time" name="time" id="time" required>
+                </div>
+                <div>
+                    <label for="isCancelled">Cancelled?</label>
+                    <select name="isCancelled" id="isCancelled">
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+                <div>
+                    <input type="submit" name="submit" id="submit" value="Add">
+                </div>
+            </form>
+            <hr>
+            <h2>Search by Date</h2>
+            <form>
+                <label for="dateFilter">Occurred/occurs</label>
+                <select name="dateFilter" id="dateFilter">
+                    <option value="on">On</option>
+                    <option value="before">Before</option>
+                    <option value="after">After</option>
+                </select>
+                <label for="filterDay">Day</label>
+                <select name="filterDay" id="filterDay">
+                    <option value="01">1</option>
+                    <option value="02">2</option>
+                    <option value="03">3</option>
+                    <option value="04">4</option>
+                    <option value="05">5</option>
+                    <option value="06">6</option>
+                    <option value="07">7</option>
+                    <option value="08">8</option>
+                    <option value="09">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                    <option value="24">24</option>
+                    <option value="25">25</option>
+                    <option value="26">26</option>
+                    <option value="27">27</option>
+                    <option value="28">28</option>
+                    <option value="29">29</option>
+                    <option value="30">30</option>
+                    <option value="31">31</option>
+                </select>
+                <label for="filterMonth">Month</label>
+                <select name="filterMonth" id="filterMonth">
+                    <option value="01">1</option>
+                    <option value="02">2</option>
+                    <option value="03">3</option>
+                    <option value="04">4</option>
+                    <option value="05">5</option>
+                    <option value="06">6</option>
+                    <option value="07">7</option>
+                    <option value="08">8</option>
+                    <option value="09">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                </select>
+                <label for="filterYear">Year</label>
+                <select name="filterYear" id="filterYear">
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+                    <option value="2019">2019</option>
+                    <option value="2018">2018</option>
+                    <option value="2017">2017</option>
+                    <option value="2016">2016</option>
+                    <option value="2015">2015</option>
+                    <option value="2014">2014</option>
+                    <option value="2013">2013</option>
+                    <option value="2012">2012</option>
+                </select>
+            </form>
+            <hr>
+            <table>
+                <thead>
+                    <th>Event ID</th>
+                    <th>Event Name</th>
+                    <th>Event Day</th>
+                    <th>Event Month</th>
+                    <th>Event Year</th>
+                    <th>Event Time</th>
+                    <th>Cancelled?</th>
+                    <th></th>
+                    <th></th>
+                </thead>
+                <tr>
+                    <th>84</th>
+                    <td>Test Show 1</td>
+                    <td>14</td>
+                    <td>02</td>
+                    <td>2013</td>
+                    <td>19:30:00</td>
+                    <td>0</td>
+                    <td><button class = "table-button">Update</button></td>
+                    <td><button class = "table-button">Remove</button></td>
+                </tr>
+                <tr>
+                    <th>582</th>
+                    <td>Test Show 2</td>
+                    <td>17</td>
+                    <td>06</td>
+                    <td>2017</td>
+                    <td>19:05:00</td>
+                    <td>0</td>
+                    <td><button class = "table-button">Update</button></td>
+                    <td><button class = "table-button">Remove</button></td>
+                </tr>
+                <tr>
+                    <th>978</th>
+                    <td>Test Show 3</td>
+                    <td>13</td>
+                    <td>3</td>
+                    <td>2020</td>
+                    <td>20:00:00</td>
+                    <td>1</td>
+                    <td><button class = "table-button">Update</button></td>
+                    <td><button class = "table-button">Remove</button></td>
+                </tr>
+            </table>
+        </main>
+    </body>
 </html>
