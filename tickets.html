@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <title>Tickets | CrowdFlow Ticketing</title>
+</head>
+<body>
+    <main class="container">
+    <h1>Tickets</h1>
+    <p>View, add, update, and delete tickets from the database.</p>
+    <hr>
+    <h2>Add New Ticket</h2>
+    <form>
+        <div>
+        <label for="eventID">Event</label>
+        <select name="eventID" id="eventID">
+            <option value="1">Test Event 1</option>
+            <option value="2">Test Event 2</option>
+            <option value="3">Test Event 3</option>
+            <option value="4">Test Event 4</option>
+        </select>
+        </div>
+        <div>
+        <label for="seat">Seat</label>
+        <select name="seat" id="seat">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+        </select>
+        <label for="row">Row</label>
+        <select name="row" id="row">
+            <option value="a">A</option>
+            <option value="b">B</option>
+            <option value="c">C</option>
+            <option value="d">D</option>
+            <option value="e">E</option>
+            <option value="f">F</option>
+            <option value="g">G</option>
+            <option value="h">H</option>
+            <option value="i">I</option>
+            <option value="j">J</option>
+            <option value="k">K</option>
+            <option value="l">L</option>
+            <option value="m">M</option>
+            <option value="n">N</option>
+            <option value="o">O</option>
+        </select>
+        <label for="section">Section</label>
+        <select name="section" id="section">
+            <option value="aaa">AAA</option>
+            <option value="bbb">BBB</option>
+            <option value="ccc">CCC</option>
+            <option value="ddd">DDD</option>
+            <option value="eee">EEE</option>
+        </select>
+        </div>
+        <div>
+        <label for="price">Price</label>
+        <input type="number" name="price" id="price" min="0" placeholder="0.00" step="0.01" required="required">
+        <label for="paymentMethod">Payment Type</label>
+        <select name="paymentMethod" id="paymentMethod">
+            <option value="cash">Cash</option>
+            <option value="visa">Visa</option>
+            <option value="mastercard">MasterCard</option>
+            <option value="amex">AMEX</option>
+            <option value="discover">Discover</option>
+        </select>
+        </div>
+        <div>
+        <label for="soldByEmployeeID">Sold By</label>
+        <select name="soldByEmployeeID" id="soldByEmployeeID">
+            <option value="1">Test Employee 1</option>
+            <option value="2">Test Employee 2</option>
+            <option value="3">Test Employee 3</option>
+        </select>
+        <label for="soldToFanID">Sold To</label>
+        <select name="soldToFanID" id="soldToFanID">
+            <option value="1">Test Fan 1</option>
+            <option value="2">Test Fan 2</option>
+            <option value="3">Test Fan 3</option>
+        </select>
+        </div>
+        <div>
+        <label for="isWillcall">Will Call?</label>
+        <select name="isWillcall" id="isWillcall">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+        <label for="isValid">Valid?</label>
+        <select name="isValid" id="isValid">
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select>
+        </div>
+        <div>
+            <input type="submit" name="submit" id="submit" value="Add">
+        </div>
+    </form>
+    <hr>
+    <table>
+        <thead>
+            <th>Ticket ID</th>
+            <th>Event</th>
+            <th>Seat</th>
+            <th>Row</th>
+            <th>Section</th>
+            <th>Price</th>
+            <th>Payment Type</th>
+            <th>Sold By</th>
+            <th>Sold To</th>
+            <th>Will Call?</th>
+            <th>Valid?</th>
+            <th></th>
+            <th></th>
+        </thead>
+        <tr>
+            <th>14</th>
+            <td>3</td>
+            <td>10</td>
+            <td>c</td>
+            <td>ccc</td>
+            <td>55.00</td>
+            <td>visa</td>
+            <td>2</td>
+            <td>1</td>
+            <td>0</td>
+            <td>1</td>
+            <td><button class = "table-button">Update</button></td>
+            <td><button class = "table-button">Remove</button></td>
+        </tr>
+        <tr>
+            <th>27</th>
+            <td>48</td>
+            <td>17</td>
+            <td>a</td>
+            <td>eee</td>
+            <td>100.00</td>
+            <td>cash</td>
+            <td>10</td>
+            <td>10007</td>
+            <td>1</td>
+            <td>1</td>
+            <td><button class = "table-button">Update</button></td>
+            <td><button class = "table-button">Remove</button></td>
+        </tr>
+        <tr>
+            <th>1003</th>
+            <td>127</td>
+            <td>20</td>
+            <td>d</td>
+            <td>aaa</td>
+            <td>37.50</td>
+            <td>amex</td>
+            <td>18</td>
+            <td>841</td>
+            <td>0</td>
+            <td>0</td>
+            <td><button class = "table-button">Update</button></td>
+            <td><button class = "table-button">Remove</button></td>
+        </tr>
+    </table>
+    </main>
+</body>
+</html>
