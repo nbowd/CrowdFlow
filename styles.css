@@ -104,3 +104,9 @@ form {
 	cursor: pointer;
 	font-weight: bold;
 }
+
+textarea{
+	display: list-item;
+	height: 60px;
+	width: 300px;
+}
