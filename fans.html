@@ -57,7 +57,16 @@
                 <input id="submit" type="submit" value="Add">
             </div>
             </form>
-    
+            
+            <button data-modal-target="#modal">Open Modal</button>
+            <div class="modal " id="modal">
+                <div class="modal-header">
+                    <div class="title">Example Modal</div>
+                    <button data-close-button class="close-button">&times;</button>
+                </div>
+                <div class="modal-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi et magni repellendus, ratione rerum recusandae provident, aperiam dignissimos deleniti dolorem vitae beatae eveniet voluptas ullam eligendi nam sed, veritatis corrupti est qui labore ipsam. Voluptates tempora libero voluptatem deserunt voluptate ipsa quae temporibus cum quis. Beatae minus nemo eius non quaerat dolorum repudiandae quod veritatis odio. Minima quam deserunt ipsum dolor suscipit cum. Doloribus corrupti adipisci reprehenderit ducimus magni est dignissimos! Soluta non odit commodi, quia id assumenda dolore natus!</div>
+            </div>
+            <div id='overlay'></div>
             <hr>
         <!-- Can be searched with an exact fanID 
         or a more general search can be done using either first or last name-->
@@ -133,5 +142,6 @@
     membership: bool, not NULL (True if premium member, False otherwise)
     comments: varchar(200)  (Comments from venue on fan, not available to fan) 
     -->
+    <script src="script.js"></script>
     </body>
 </html>
