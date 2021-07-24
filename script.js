@@ -1,16 +1,16 @@
 const openModalButtons = document.querySelectorAll('[data-modal-target]')
 const closeModalButtons = document.querySelectorAll('[data-close-button]')
-
+const backButtons = document.querySelectorAll('.back-button')
+console.log(backButtons);
 const overlay = document.getElementById('overlay')
 
-overlay.addEventListener('click', () => {
+overlay && overlay.addEventListener('click', () => {
   const modals = document.querySelectorAll('.modal.active')
   modals.forEach(modal => {
     closeModal(modal)
   })
 })
 openModalButtons.forEach(button => {
-  console.log('opened');
   button.addEventListener('click', () => {
     const modal = document.querySelector(button.dataset.modalTarget)
     openModal(modal)
@@ -18,10 +18,16 @@ openModalButtons.forEach(button => {
 })
 
 closeModalButtons.forEach(button => {
-  console.log('closed');
   button.addEventListener('click', () => {
     const modal = button.closest('.modal')
     closeModal(modal)
+  })
+})
+
+backButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    console.log('made it');
+    window.history.back();
   })
 })
 
@@ -34,4 +40,8 @@ function closeModal(modal) {
   if (modal == null) return
   modal.classList.remove('active')
   overlay.classList.remove('active')
+}
+
+function goBack() {
+  window.history.back();
 }

@@ -93,7 +93,7 @@ form {
 	color: #02075d;
 }
 
-.table-button {
+.table-button, .form-button {
 	background: #02075d;
 	color: white;
 	border: 2px solid;
@@ -170,4 +170,10 @@ textarea{
 #overlay.active {
 	opacity: 1;
 	pointer-events: all;
+}
+
+.back-button {
+	position: fixed;
+	bottom: 10px;
+	left: 10px;
 }

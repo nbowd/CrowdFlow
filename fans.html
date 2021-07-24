@@ -13,60 +13,107 @@
     </head>
     <body>
         <main class="container">
+            <div id='overlay'></div>
             <h1>Fans</h1>
             <p>Register fans and manage their information.</p>
-            <hr>
-
-            <h2>Add New Fan</h2>
-            <form>
-            <div>
-                <label for="firstName">First Name:</label>
-                <input type="text" name="firstName" id="firstName" required>
-            </div>
-            <div>
-                <label for="lastName">Last Name:</label>
-                <input type="text" name="lastName" id="lastName" required>
-            </div>
-            <div>
-                <label for="gender">Gender:</label>
-                <input type="text" name="gender" id="gender" required>
-            </div>
-            <div>
-                <label for="birthdate">Birthdate:</label>
-                <input type="date" name="birthdate" id="birthdate" required>
-            </div>
-            <div>
-                <label for="phone">Phone Number:</label>
-                <input type="text" name="phone" id="phone">
-            </div>
-        
-            <div>
-                <label for="email">Email address:</label>
-                <input type="text" name="email" id="email">
-            </div>
-            <div>
-                <label for="membership">Membership:</label>
-                <input type="checkbox" name="membership" id="membership">
-            </div>
-            <div>
-                <label for="comments">Comments:</label>
-                <textarea name="comments" id="comments"></textarea>
-            </div>
-
-            <div>
-                <input id="submit" type="submit" value="Add">
-            </div>
-            </form>
             
-            <button data-modal-target="#modal">Open Modal</button>
-            <div class="modal " id="modal">
+            <!-- THIS WILL BE POPULATED WITH DOM -->
+            <div class="modal" id="fan-edit-modal">
                 <div class="modal-header">
-                    <div class="title">Example Modal</div>
+                    <div class="title">Edit Fan Information</div>
                     <button data-close-button class="close-button">&times;</button>
                 </div>
-                <div class="modal-body">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi et magni repellendus, ratione rerum recusandae provident, aperiam dignissimos deleniti dolorem vitae beatae eveniet voluptas ullam eligendi nam sed, veritatis corrupti est qui labore ipsam. Voluptates tempora libero voluptatem deserunt voluptate ipsa quae temporibus cum quis. Beatae minus nemo eius non quaerat dolorum repudiandae quod veritatis odio. Minima quam deserunt ipsum dolor suscipit cum. Doloribus corrupti adipisci reprehenderit ducimus magni est dignissimos! Soluta non odit commodi, quia id assumenda dolore natus!</div>
+                <div class="modal-body">
+                    <form class="modal-form">
+                        <div>
+                            <label for="firstName">First Name:</label>
+                            <input type="text" name="firstName" id="firstName" required>
+                        </div>
+                        <div>
+                            <label for="lastName">Last Name:</label>
+                            <input type="text" name="lastName" id="lastName" required>
+                        </div>
+                        <div>
+                            <label for="gender">Gender:</label>
+                            <input type="text" name="gender" id="gender" required>
+                        </div>
+                        <div>
+                            <label for="birthdate">Birthdate:</label>
+                            <input type="date" name="birthdate" id="birthdate" required>
+                        </div>
+                        <div>
+                            <label for="phone">Phone Number:</label>
+                            <input type="text" name="phone" id="phone">
+                        </div>
+                    
+                        <div>
+                            <label for="email">Email address:</label>
+                            <input type="text" name="email" id="email">
+                        </div>
+                        <div>
+                            <label for="membership">Membership:</label>
+                            <input type="checkbox" name="membership" id="membership">
+                        </div>
+                        <div>
+                            <label for="comments">Comments:</label>
+                            <textarea name="comments" id="comments"></textarea>
+                        </div>
+            
+                        <div>
+                            <input id="submit" type="submit" value="Submit">
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div id='overlay'></div>
+
+            <button data-modal-target="#fan-modal" class="form-button">Add Fan</button>
+            <div class="modal " id="fan-modal">
+                <div class="modal-header">
+                    <div class="title">Add New Fan</div>
+                    <button data-close-button class="close-button">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form class="modal-form">
+                        <div>
+                            <label for="firstName">First Name:</label>
+                            <input type="text" name="firstName" id="firstName" required>
+                        </div>
+                        <div>
+                            <label for="lastName">Last Name:</label>
+                            <input type="text" name="lastName" id="lastName" required>
+                        </div>
+                        <div>
+                            <label for="gender">Gender:</label>
+                            <input type="text" name="gender" id="gender" required>
+                        </div>
+                        <div>
+                            <label for="birthdate">Birthdate:</label>
+                            <input type="date" name="birthdate" id="birthdate" required>
+                        </div>
+                        <div>
+                            <label for="phone">Phone Number:</label>
+                            <input type="text" name="phone" id="phone">
+                        </div>
+                    
+                        <div>
+                            <label for="email">Email address:</label>
+                            <input type="text" name="email" id="email">
+                        </div>
+                        <div>
+                            <label for="membership">Membership:</label>
+                            <input type="checkbox" name="membership" id="membership">
+                        </div>
+                        <div>
+                            <label for="comments">Comments:</label>
+                            <textarea name="comments" id="comments"></textarea>
+                        </div>
+            
+                        <div>
+                            <input id="submit" type="submit" value="Add">
+                        </div>
+                        </form>
+                </div>
+            </div>
             <hr>
         <!-- Can be searched with an exact fanID 
         or a more general search can be done using either first or last name-->
@@ -114,7 +161,7 @@
                     <td>spamwelcome@gmail.com</td>
                     <td>No</td>
                     <td>Requires all staff to refer to him in third person</td>
-                    <td><button class="table-button">Edit</button><button class="table-button">Delete</button></td>
+                    <td><button data-modal-target="#fan-edit-modal" class="table-button">Edit</button><button class="table-button">Delete</button></td>
                 </tr
                 <tr>
                     <td>112</td>
@@ -126,7 +173,7 @@
                     <td>wannagofast@gmail.com</td>
                     <td>Yes</td>
                     <td>Under NO circumstances may Ricky be allowed near the tour busses</td>
-                    <td><button class="table-button">Edit</button><button class="table-button">Delete</button></td>
+                    <td><button data-modal-target="#fan-edit-modal" class="table-button">Edit</button><button class="table-button">Delete</button></td>
                 </tr>
             </tbody>
             </table>

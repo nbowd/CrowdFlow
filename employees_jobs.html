@@ -12,26 +12,39 @@
         <title>Employee Jobs | CrowdFlow Ticketing</title>
     </head>
     <body>
+        <button class="table-button back-button" id='back-button'>&larr;</button>
         <main class="container">
         <h1>Employee Jobs</h1>
         <p>The current role each employee is working</p>
 
         <hr>
-
+        <h2>Add New Entry</h2>
+        <form>
+            <div>
+                <label for="employeeID">EmployeeID</label>
+                <input type="number" name="employeeID" id="employeeID">
+            </div>  
+            <div>
+                <label for="jobID">JobID</label>
+                <input type="number" name="jobID" id="jobID">
+            </div>
+            <div>
+                <input type="submit" name="submit" id="submit" value="Add">
+            </div>
+        </form>
+        <hr>
         <form >
             <h2>Search by ID</h2>
-            <label for="search-jobs">Search by JobID</label>
-            <input type="number" name="search-jobs" id="search-jobs">
-            <p>OR</p>
-
             <label for="search-employees">Search by EmployeeID</label>
             <input type="number" name="search-employees" id="search-employees">
+            <p>OR</p>
+            <label for="search-jobs">Search by JobID</label>
+            <input type="number" name="search-jobs" id="search-jobs">
             <br>
             <input id="submit" type="submit" value="Submit">
         </form>
 
         <hr>
-
 
         <h2>Current Roles</h2>
 
@@ -40,6 +53,7 @@
             <tr>
                 <th>Employee ID</th>
                 <th>Job ID</th>
+                <th></th>
             </tr>
             </thead>
             <tbody >
@@ -47,10 +61,12 @@
             <tr>
                 <td>21</td>
                 <td>5</td>
+                <td><button class = "table-button">Update</button><button class = "table-button">Remove</button></td>
             </tr
             <tr>
                 <td>15</td>
                 <td>2</td>
+                <td><button class = "table-button">Update</button><button class = "table-button">Remove</button></td>
             </tr>
             </tbody>
             </table>
@@ -61,5 +77,6 @@
         employeeID: int, FK(Employees), not NULL
 
         -->
+        <script src="script.js"></script>
     </body>
 </html>
