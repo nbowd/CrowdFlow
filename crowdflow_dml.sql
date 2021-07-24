@@ -14,19 +14,19 @@ SELECT fanID from Fans
 
 -- add a new ticket
 -- : character used to denote inputs from backend
-INSERT INTO Tickets (eventID, seat, row, section, price, paymentMethod, soldByEmployeeID, soldToFanID, isWillcall, isValid) VALUES (:eventID, :seat, :row, :section, :price, :paymentMethod, :soldByEmployeeID, :soldToFanID, :isWillcall, :isValid)
+INSERT INTO Tickets (eventID, seat, row, section, price, paymentMethod, soldByEmployeeID, soldToFanID, isWillcall, isValid) VALUES (:eventIDAddInput, :seatAddInput, :rowAddInput, :sectionAddInput, :priceAddInput, :paymentMethodAddInput, :soldByEmployeeIDAddInput, :soldToFanIDAddInput, :isWillcallAddInput, :isValidAddInput)
 
 -- get a single ticket's data for the update ticket form
 -- : character used to denote inputs from backend
-SELECT eventID, seat, row, section, price, paymentMethod, soldByEmployeeID, soldToFanID, isWillcall, isValid FROM Tickets WHERE ticketID = :ticketID
+SELECT eventID, seat, row, section, price, paymentMethod, soldByEmployeeID, soldToFanID, isWillcall, isValid FROM Tickets WHERE ticketID = :ticketIDUpdateInput
 
 -- update ticket based on submission on update ticket form
 --: character used to denote inputs from backend
-UPDATE Tickets SET eventID=:eventID, seat=:seat, row=:row, section=:section, price=:price, paymentMethod=:paymentMethod, soldByEmployeeID=:soldByEmployeeID, soldToFanID=:soldToFanID, isWillcall=:isWillcall, isValid=:isValid WHERE ticketID=:ticketID
+UPDATE Tickets SET eventID=:eventIDUpdateInput, seat=:seatUpdateInput, row=:rowUpdateInput, section=:sectionUpdateInput, price=:priceUpdateInput, paymentMethod=:paymentMethodUpdateInput, soldByEmployeeID=:soldByEmployeeIDUpdateInput, soldToFanID=:soldToFanIDUpdateInput, isWillcall=:isWillcallUpdateInput, isValid=:isValidUpdateInput WHERE ticketID=:ticketIDInput
 
 -- delete a ticket
 -- : character used to denote inputs from backend
-DELETE FROM Tickets WHERE ticketID = :ticketID
+DELETE FROM Tickets WHERE ticketID = :ticketIDDeleteInput
 
 ------------------------------------------------------------------------------------------------------------------------------------
 
@@ -35,31 +35,31 @@ SELECT eventID, eventName, musicType, eventDate, eventTime, isCancelled FROM Eve
 
 -- add a new event
 -- : character used to denote inputs from backend
-INSERT INTO Events (eventName, musicType, eventDate, eventTime, isCancelled) VALUES (:eventName, :musicType, :eventDate, :eventTime, :isCancelled)
+INSERT INTO Events (eventName, musicType, eventDate, eventTime, isCancelled) VALUES (:eventNameAddInput, :musicTypeAddInput, :eventDateAddInput, :eventTimeAddInput, :isCancelledAddInput)
 
 -- get a single event's data for the update event form
 -- : character used to denote inputs from backend
-SELECT eventName, musicType, eventDate, eventTime, isCancelled WHERE eventID = :eventID
+SELECT eventName, musicType, eventDate, eventTime, isCancelled WHERE eventID = :eventIDUpdateInput
 
 -- update event based on submission from update event form
 -- : character used to denote inputs from backend
-UPDATE Events SET eventName=:eventName, musicType=:musicType, eventDate=:eventDate, eventTime=:eventTime, isCancelled=:isCancelled WHERE ticketID=:ticketID
+UPDATE Events SET eventName=:eventNameUpdateInput, musicType=:musicTypeUpdateInput, eventDate=:eventDateUpdateInput, eventTime=:eventTimeUpdateInput, isCancelled=:isCancelledUpdateInput WHERE ticketID=:ticketIDUpdateInput
 
 -- delete an event
 -- : character used to denote inputs from backend
-DELETE FROM Events WHERE eventID=:eventID
+DELETE FROM Events WHERE eventID=:eventIDDeleteInput
 
 -- get all events that occurred on a specified date
 -- : character used to denote inputs from backend
-SELECT eventID, eventName, musicType, eventDate, eventTime, isCancelled FROM Events WHERE eventDate=:eventDate
+SELECT eventID, eventName, musicType, eventDate, eventTime, isCancelled FROM Events WHERE eventDate=:filterDate
 
 -- get all events that occured PRIOR to a specified date
 -- : character used to denote inputs from backend
-SELECT eventID, eventName, musicType, eventDate, eventTime, isCancelled FROM Events WHERE eventDate<:eventDate
+SELECT eventID, eventName, musicType, eventDate, eventTime, isCancelled FROM Events WHERE eventDate<:filterDate
 
 -- get all events that occur AFTER to a specified date
 -- : character used to denote inputs from backend
-SELECT eventID, eventName, musicType, eventDate, eventTime, isCancelled FROM Events WHERE eventDate>:eventDate
+SELECT eventID, eventName, musicType, eventDate, eventTime, isCancelled FROM Events WHERE eventDate>:filterDate
 
 ------------------------------------------------------------------------------------------------------------------------------------
 
@@ -68,4 +68,4 @@ SELECT eventID, fanID FROM Events_fans
 
 -- associate a fan with an event (M:M relationship addition)
 --: character used to denote inputs from backend
-INSERT INTO Events_fans (eventID, fanID) VALUES (:eventID, :fanID)
+INSERT INTO Events_fans (eventID, fanID) VALUES (:eventIDAddInput, :fanIDAddInput)
