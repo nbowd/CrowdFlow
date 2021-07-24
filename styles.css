@@ -110,3 +110,9 @@ textarea{
 	height: 60px;
 	width: 300px;
 }
+
+.back-button {
+	position: fixed;
+	bottom: 10px;
+	left: 10px;
+}
