@@ -18,10 +18,10 @@
     <h2>Add New Event</h2>
     <form>
         <div>
-        <label for="eventName">Event</label>
-        <input type="text" name="eventName" id="eventName" min="1" max="50" required>
-        <label for="musicType">Music Type</label>
-        <select name="musicType" id="musicType">
+        <label for="eventNameAddInput">Event</label>
+        <input type="text" name="eventNameAddInput" id="eventNameAddInput" min="1" max="50" required>
+        <label for="musicTypeAddInput">Music Type</label>
+        <select name="musicTypeAddInput" id="musicTypeAddInput">
             <option value="rock">Rock</option>
             <option value="hip_hop">Hip Hop</option>
             <option value="pop">Pop</option>
@@ -36,14 +36,14 @@
         </select>
         </div>
         <div>
-        <label for="eventDate">Event Date</label>
-        <input type="date" required min="2011-07-01" max="2022-07-01">
-        <label for="time">Event Time</label>
-        <input type="time" name="time" id="time" required>
+        <label for="eventDateAddInput">Event Date</label>
+        <input type="date" required min="2011-07-01" max="2022-07-01" name="eventDateAddInput" id="eventDateAddInput">
+        <label for="eventTimeAddInput">Event Time</label>
+        <input type="time" name="eventTimeAddInput" id="eventTimeAddInput" required>
         </div>
         <div>
-        <label for="isCancelled">Cancelled?</label>
-        <select name="isCancelled" id="isCancelled">
+        <label for="isCancelledAddInput">Cancelled?</label>
+        <select name="isCancelledAddInput" id="isCancelledAddInput">
             <option value="1">Yes</option>
             <option value="0">No</option>
         </select>
@@ -62,7 +62,7 @@
             <option value="after">After</option>
         </select>
         <label for="filterDate">Date</label>
-        <input type="date" required min="2011-07-01" max="2022-07-01">
+        <input type="date" required min="2011-07-01" max="2022-07-01" name="filterDate" id="filterDate">
     </form>
     <hr>
     <table>

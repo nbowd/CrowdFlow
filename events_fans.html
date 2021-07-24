@@ -13,7 +13,20 @@
     <button class="table-button back-button" id='back-button' onclick="window.history.back()">&larr;</button>
     <main class="container">
         <h1>Events_fans</h1>
-        <p>View the relationships between events and fans in the database</p>
+        <p>View and add relationships between events and fans in the database</p>
+        <hr>
+        <h2>Add New Relationship</h2>
+        <form>
+          <div>
+            <label for="eventIDAddInput"> Event ID</label>
+            <input type="text" name="eventIDAddInput" id="eventIDAddInput" required>
+            <label for="fanIDAddInput">Fan ID</label>
+            <input type="text" name="fanIDAddInput" id="fanIDAddInput" required>
+          </div>
+          <div>
+            <input type="submit" name="submit" id="submit" value="Add">
+          </div>
+        </form>
         <hr>
         <table>
             <thead>
