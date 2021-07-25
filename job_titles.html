@@ -12,9 +12,22 @@
     <body>
         <button class="table-button back-button" id='back-button' onclick="window.history.back()">&larr;</button>
         <main class="container">
+            <div id="overlay"></div>
             <h1>Job Titles</h1>
             <p>Current roles at CrowdFlow</p>
             <hr>
+
+            <div class="modal" id="delete-modal">
+                <div class="modal-header">
+                    <div class="title">Delete Confirmation</div>
+                    <button data-close-button class="close-button">&times;</button> 
+                </div>
+                <div class="modal-body delete-modal-body">
+                    <div>Are you sure you want to delete this?</div>
+                    <div><button data-close-button class="table-button">Cancel</button><button class="table-button">Delete</button></div>
+                </div>
+            </div>
+
             <h2>Create New Job</h2>
             <form>
                 <div>
@@ -46,22 +59,17 @@
                         <td>Points of sale at the venue, main function is to quickly make transactions 
                             and to point the fan in the direction they need to go afterward
                         </td>
-                        <td><button class="table-button">Edit</button><button class="table-button">Delete</button></td>
+                        <td><button class="table-button">Update</button><button data-modal-target="#delete-modal" class="table-button">Remove</button></td>
                     </tr>
                     <tr>
                         <td>2</td>
                         <td>Senior Ticket Seller</td>
                         <td>Handles bulk sales, vip tickets, special accommodations. Basically deals with any special cases that would slow down the Ticket Sellers</td>
-                        <td><button class="table-button">Edit</button><button class="table-button">Delete</button></td>
+                        <td><button class="table-button">Update</button><button data-modal-target="#delete-modal" class="table-button">Remove</button></td>
                     </tr>
                 </tbody>
             </table>
         </main>
-        <!-- 
-            jobID: int, auto_increment, unique, not NULL, PK
-            title: varchar(70), not NULL 
-            description: varchar(200), not NULL ( a brief description of the job title/duties)
-            
-            -->
+        <script src="script.js"></script>
     </body>
 </html>
