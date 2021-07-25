@@ -1,6 +1,8 @@
 ------------------------------------------------------------------------------------------------------------------------------------
 ----------------  FOR ALL QUERIES BELOW `:` character used to denote inputs from backend ---------------- 
 
+-------- TICKETS PAGE QUERIES --------
+
 -- get all the ticket data to display on Tickets page
 SELECT ticketID, eventID, seat, row, section, price, paymentMethod, soldByEmployeeID, soldToFanID, isWillcall, isValid FROM Tickets
 
@@ -16,6 +18,9 @@ SELECT fanID from Fans
 -- add a new ticket
 INSERT INTO Tickets (eventID, seat, row, section, price, paymentMethod, soldByEmployeeID, soldToFanID, isWillcall, isValid) VALUES (:eventIDAddInput, :seatAddInput, :rowAddInput, :sectionAddInput, :priceAddInput, :paymentMethodAddInput, :soldByEmployeeIDAddInput, :soldToFanIDAddInput, :isWillcallAddInput, :isValidAddInput)
 
+-- associate a fan with an event (M:M relationship addition)
+INSERT INTO Events_fans (eventID, fanID) VALUES (:eventIDAddInput, :soldToFanIDAddInput)
+
 -- get a single ticket's data for the update ticket form
 SELECT eventID, seat, row, section, price, paymentMethod, soldByEmployeeID, soldToFanID, isWillcall, isValid FROM Tickets WHERE ticketID = :ticketIDUpdateInput
 
@@ -25,7 +30,7 @@ UPDATE Tickets SET eventID=:eventIDUpdateInput, seat=:seatUpdateInput, row=:rowU
 -- delete a ticket
 DELETE FROM Tickets WHERE ticketID = :ticketIDDeleteInput
 
-------------------------------------------------------------------------------------------------------------------------------------
+-------- EVENTS PAGE QUERIES --------
 
 -- get all event data to display on Events page
 SELECT eventID, eventName, musicType, eventDate, eventTime, isCancelled FROM Events
@@ -51,7 +56,7 @@ SELECT eventID, eventName, musicType, eventDate, eventTime, isCancelled FROM Eve
 -- get all events that occur AFTER to a specified date
 SELECT eventID, eventName, musicType, eventDate, eventTime, isCancelled FROM Events WHERE eventDate>:filterDate
 
-------------------------------------------------------------------------------------------------------------------------------------
+-------- EVENTS FANS PAGE QUERIES --------
 
 -- get all Events_fans data to display on Events_fans page
 SELECT eventID, fanID FROM Events_fans
