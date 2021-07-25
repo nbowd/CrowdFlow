@@ -10,7 +10,7 @@ CREATE TABLE `Events` (
     `eventDate` date NOT NULL,
     `eventTime` time NOT NULL,
     `isCancelled` TINYINT(1) NOT NULL,
-    PRIMARY KEY (`eventID`)
+    PRIMARY KEY (`eventID`) 
 );
 
 --
@@ -26,7 +26,10 @@ INSERT INTO `Events` VALUES (84, 'Test Show 1', 'Rock', '2013-02-14', '19:30:00'
 DROP TABLE IF EXISTS `Events_fans`;
 CREATE TABLE `Events_fans` (
     `eventID` int NOT NULL,
-    `fanID` int NOT NULL
+    `fanID` int NOT NULL,
+    PRIMARY KEY (`eventID`, `fanID`),
+    FOREIGN KEY (`eventID`) REFERENCES `Events`(`eventID`) ON DELETE CASCADE ON UPDATE CASCADE
+    FOREIGN KEY (`fanID`) REFERENCES `Fans`(`fanID`) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 --
@@ -54,8 +57,8 @@ CREATE TABLE `Tickets` (
     `isValid` TINYINT(1) NOT NULL,
     PRIMARY KEY (`ticketID`),
     FOREIGN KEY (`eventID`) REFERENCES `Events`(`eventID`) ON DELETE CASCADE ON UPDATE CASCADE
-    -- FOREIGN KEY (`soldByEmployeeID`) REFERENCES `Employees`(`employeeID`) ON DELETE CASCADE ON UPDATE CASCADE,
-    -- FOREIGN KEY (`soldToFanID`) REFERENCES `Fans`(`fanID`) ON DELETE CASCADE ON UPDATE CASCADE  
+    FOREIGN KEY (`soldByEmployeeID`) REFERENCES `Employees`(`employeeID`) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (`soldToFanID`) REFERENCES `Fans`(`fanID`) ON DELETE CASCADE ON UPDATE CASCADE  
 );
 
 --
