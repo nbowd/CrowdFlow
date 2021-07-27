@@ -1,3 +1,4 @@
+// These data attributes are separate and unaffected by styling classes
 const openModalButtons = document.querySelectorAll('[data-modal-target]')
 const closeModalButtons = document.querySelectorAll('[data-close-button]')
 
@@ -9,6 +10,7 @@ overlay && overlay.addEventListener('click', () => {
     closeModal(modal)
   })
 })
+
 openModalButtons.forEach(button => {
   button.addEventListener('click', () => {
     const modal = document.querySelector(button.dataset.modalTarget)
@@ -28,6 +30,7 @@ function openModal(modal) {
   modal.classList.add('active')
   overlay.classList.add('active')
 }
+
 function closeModal(modal) {
   if (modal == null) return
   modal.classList.remove('active')

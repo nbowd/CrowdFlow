@@ -119,7 +119,7 @@ textarea{
 	transition: 200ms ease-in-out;
 	border: 1px solid black;
 	border-radius: 10px;
-	z-index: 10;
+	z-index: 10; /* Ensures modal is drawn higher than the other elements */
 	background-color: white;
 	width: 500px;
 	max-width: 80%;
@@ -164,7 +164,7 @@ textarea{
 	bottom: 0;
 	right: 0;
 	background-color: rgb(0,0,0,.5);
-	pointer-events: none;
+	pointer-events: none; /* Disables button clicks on targets beneath the overlay */
 }
 
 #overlay.active {
@@ -176,4 +176,13 @@ textarea{
 	position: fixed;
 	bottom: 10px;
 	left: 10px;
+}
+
+.delete-modal-body {
+text-align: center;
+padding: 10px;
+}
+
+.delete-modal-body button {
+	margin-top: 15px;
 }

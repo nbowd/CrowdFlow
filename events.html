@@ -12,9 +12,22 @@
     <body>
     <button class="table-button back-button" id='back-button' onclick="window.history.back()">&larr;</button>
     <main class="container">
+    <div id="overlay"></div>
     <h1>Events</h1>
     <p>View, add, update, and delete events from the database.</p>
     <hr>
+
+    <div class="modal" id="delete-modal">
+        <div class="modal-header">
+            <div class="title">Delete Confirmation</div>
+            <button data-close-button class="close-button">&times;</button> 
+        </div>
+        <div class="modal-body delete-modal-body">
+            <div>Are you sure you want to delete this?</div>
+            <div><button data-close-button class="table-button">Cancel</button><button class="table-button">Delete</button></div>
+        </div>
+    </div>
+
     <h2>Add New Event</h2>
     <form>
         <div>
@@ -84,7 +97,7 @@
             <td>19:30:00</td>
             <td>0</td>
             <td><button class = "table-button">Update</button></td>
-            <td><button class = "table-button">Remove</button></td>
+            <td><button data-modal-target="#delete-modal" class = "table-button">Remove</button></td>
         </tr>
         <tr>
             <th>582</th>
@@ -94,7 +107,7 @@
             <td>19:05:00</td>
             <td>0</td>
             <td><button class = "table-button">Update</button></td>
-            <td><button class = "table-button">Remove</button></td>
+            <td><button data-modal-target="#delete-modal" class = "table-button">Remove</button></td>
         </tr>
         <tr>
             <th>978</th>
@@ -104,9 +117,10 @@
             <td>20:00:00</td>
             <td>1</td>
             <td><button class = "table-button">Update</button></td>
-            <td><button class = "table-button">Remove</button></td>
+            <td><button data-modal-target="#delete-modal" class = "table-button">Remove</button></td>
         </tr>
     </table>
     </main>
+    <script src="script.js"></script>
 </body>
 </html>

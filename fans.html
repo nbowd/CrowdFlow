@@ -14,9 +14,22 @@
     <body>
         <button class="table-button back-button" id='back-button' onclick="window.history.back()">&larr;</button>
         <main class="container">
-            <div id='overlay'></div>
+            <div id='overlay'></div> <!-- This can go anywhere, rendered with css and javascript -->
+
             <h1>Fans</h1>
             <p>Register fans and manage their information.</p>
+
+            <!-- id important for targeting individual modals -->
+            <div class="modal" id="delete-modal">
+                <div class="modal-header">
+                    <div class="title">Delete Confirmation</div>
+                    <button data-close-button class="close-button">&times;</button> <!-- HTML entity instead of 'X' allows for easier centering and won't be affected by font-size changes  -->
+                </div>
+                <div class="modal-body delete-modal-body">
+                    <div>Are you sure you want to delete this?</div>
+                    <div><button data-close-button class="table-button">Cancel</button><button class="table-button">Delete</button></div>
+                </div>
+            </div>
             
             <!-- THIS WILL BE POPULATED WITH DOM -->
             <div class="modal" id="fan-edit-modal">
@@ -162,7 +175,7 @@
                     <td>spamwelcome@gmail.com</td>
                     <td>No</td>
                     <td>Requires all staff to refer to him in third person</td>
-                    <td><button data-modal-target="#fan-edit-modal" class="table-button">Edit</button><button class="table-button">Delete</button></td>
+                    <td><button data-modal-target="#fan-edit-modal" class="table-button">Edit</button><button data-modal-target="#delete-modal" class="table-button">Delete</button></td>
                 </tr
                 <tr>
                     <td>112</td>
@@ -174,7 +187,7 @@
                     <td>wannagofast@gmail.com</td>
                     <td>Yes</td>
                     <td>Under NO circumstances may Ricky be allowed near the tour busses</td>
-                    <td><button data-modal-target="#fan-edit-modal" class="table-button">Edit</button><button class="table-button">Delete</button></td>
+                    <td><button data-modal-target="#fan-edit-modal" class="table-button">Edit</button><button data-modal-target="#delete-modal" class="table-button">Delete</button></td>
                 </tr>
             </tbody>
             </table>
