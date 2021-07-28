@@ -27,6 +27,52 @@
             <div><button data-close-button class="table-button">Cancel</button><button class="table-button">Delete</button></div>
         </div>
     </div>
+    
+    <!-- THIS WILL BE POPULATED WITH DOM -->
+    <div class="modal" id="event-edit-modal">
+        <div class="modal-header">
+            <div class="title">Edit Event Information</div>
+            <button data-close-button class="close-button">&times;</button>
+        </div>
+        <div class="modal-body">
+            <form class="modal-form">
+                <div>
+                    <label for="eventNameUpdateInput">Event</label>
+                    <input type="text" name="eventNameUpdateInput" id="eventNameUpdateInput" min="1" max="50" required>
+                    <label for="musicTypeUpdateInput">Music Type</label>
+                    <select name="musicTypeUpdateInput" id="musicTypeUpdateInput">
+                        <option value="rock">Rock</option>
+                        <option value="hip_hop">Hip Hop</option>
+                        <option value="pop">Pop</option>
+                        <option value="country">Country</option>
+                        <option value="r_and_b">R & B</option>
+                        <option value="electronic">Electronic</option>
+                        <option value="folk">Folk</option>
+                        <option value="indie">Indie</option>
+                        <option value="blues">Blues</option>
+                        <option value="jazz">Jazz</option>
+                        <option value="other">Other</option>
+                    </select>
+                    </div>
+                    <div>
+                    <label for="eventDateUpdateInput">Event Date</label>
+                    <input type="date" required min="2011-07-01" max="2022-07-01" name="eventDateUpdateInput" id="eventDateUpdateInput">
+                    <label for="eventTimeUpdateInput">Event Time</label>
+                    <input type="time" name="eventTimeUpdateInput" id="eventTimeUpdateInput" required>
+                    </div>
+                    <div>
+                    <label for="isCancelledUpdateInput">Cancelled?</label>
+                    <select name="isCancelledUpdateInput" id="isCancelledUpdateInput">
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                    </div>
+                    <div>
+                        <input type="submit" name="submit" id="submit" value="Update">
+                    </div>
+                </form>
+        </div>
+    </div>
 
     <h2>Add New Event</h2>
     <form>
@@ -96,7 +142,7 @@
             <td>02/14/2013</td>
             <td>19:30:00</td>
             <td>0</td>
-            <td><button class = "table-button">Update</button></td>
+            <td><button data-modal-target="#event-edit-modal" class="table-button">Edit</button></td>
             <td><button data-modal-target="#delete-modal" class = "table-button">Remove</button></td>
         </tr>
         <tr>
@@ -106,7 +152,7 @@
             <td>06/17/2017</td>
             <td>19:05:00</td>
             <td>0</td>
-            <td><button class = "table-button">Update</button></td>
+            <td><button data-modal-target="#event-edit-modal" class="table-button">Edit</button></td>
             <td><button data-modal-target="#delete-modal" class = "table-button">Remove</button></td>
         </tr>
         <tr>
@@ -116,7 +162,7 @@
             <td>03/13/2020</td>
             <td>20:00:00</td>
             <td>1</td>
-            <td><button class = "table-button">Update</button></td>
+            <td><button data-modal-target="#event-edit-modal" class="table-button">Edit</button></td>
             <td><button data-modal-target="#delete-modal" class = "table-button">Remove</button></td>
         </tr>
     </table>

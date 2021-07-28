@@ -27,6 +27,28 @@
                     <div><button data-close-button class="table-button">Cancel</button><button class="table-button">Delete</button></div>
                 </div>
             </div>
+            
+            <!-- THIS WILL BE POPULATED WITH DOM -->
+            <div class="modal" id="job-title-edit-modal">
+                <div class="modal-header">
+                    <div class="title">Edit Job Title Information</div>
+                    <button data-close-button class="close-button">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form class="modal-form">
+                        <div>
+                            <label for="title">Job Title:</label>
+                            <input type="text" name="title" id="title" required>
+                        </div>
+                        <div class='text-field'>
+                            <label for="description">Description:</label>
+                            <textarea name="description" id="description" required></textarea>
+                        </div>
+                        <br>
+                        <input id="submit" type="submit" value="Submit">
+                    </form>
+                </div>
+            </div>
 
             <h2>Create New Job</h2>
             <form>
@@ -59,13 +81,13 @@
                         <td>Points of sale at the venue, main function is to quickly make transactions 
                             and to point the fan in the direction they need to go afterward
                         </td>
-                        <td><button class="table-button">Update</button><button data-modal-target="#delete-modal" class="table-button">Remove</button></td>
+                        <td><button data-modal-target="#job-title-edit-modal" class="table-button">Edit</button><button data-modal-target="#delete-modal" class="table-button">Remove</button></td>
                     </tr>
                     <tr>
                         <td>2</td>
                         <td>Senior Ticket Seller</td>
                         <td>Handles bulk sales, vip tickets, special accommodations. Basically deals with any special cases that would slow down the Ticket Sellers</td>
-                        <td><button class="table-button">Update</button><button data-modal-target="#delete-modal" class="table-button">Remove</button></td>
+                        <td><button data-modal-target="#job-title-edit-modal" class="table-button">Edit</button><button data-modal-target="#delete-modal" class="table-button">Remove</button></td>
                     </tr>
                 </tbody>
             </table>
