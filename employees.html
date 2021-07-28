@@ -28,6 +28,44 @@
                 </div>
             </div>
         
+            <!-- THIS WILL BE POPULATED WITH DOM -->
+            <div class="modal" id="employee-edit-modal">
+                <div class="modal-header">
+                    <div class="title">Edit Employee Information</div>
+                    <button data-close-button class="close-button">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form class="modal-form">
+                        <div>
+                            <label for="firstName">First Name:</label>
+                            <input type="text" name="firstName" id="firstName" required>
+                        </div>
+                        <div>
+                            <label for="lastName">Last Name:</label>
+                            <input type="text" name="lastName" id="lastName" required>
+                        </div>
+                        <div>
+                            <label for="birthdate">Birthdate:</label>
+                            <input type="date" name="birthdate" id="birthdate" required>
+                        </div>
+                        <div>
+                            <label for="start-date">Start date:</label>
+                            <input type="date" name="start-date" id="start-date" required>
+                        </div>
+                        <div>
+                            <label for="phone">Phone Number:</label>
+                            <input type="text" name="phone" id="phone">
+                        </div>
+                        <div>
+                            <label for="email">Email address:</label>
+                            <input type="text" name="email" id="email">
+                        </div>
+
+                        <br>
+                        <input id="submit" type="submit" value="Add">
+                    </form>
+                </div>
+            </div>
     
             <h2>Add New Employee</h2>
             <form>
@@ -104,7 +142,7 @@
             <td>11/11/2020</td>
             <td>999-867-5309</td>
             <td>spamwelcome@gmail.com</td>
-            <td><button class="table-button">Update</button><button data-modal-target="#delete-modal" class="table-button">Remove</button></td>
+            <td><button data-modal-target="#employee-edit-modal" class="table-button">Edit</button><button data-modal-target="#delete-modal" class="table-button">Remove</button></td>
             </tr
             <tr>
             <td>210</td>
@@ -114,7 +152,7 @@
             <td>11/11/3020</td>
             <td>123-456-7890</td>
             <td>wannagofast@gmail.com</td>
-            <td><button class="table-button">Update</button><button data-modal-target="#delete-modal" class="table-button">Remove</button></td>
+            <td><button data-modal-target="#employee-edit-modal" class="table-button">Edit</button><button data-modal-target="#delete-modal" class="table-button">Remove</button></td>
             </tr>
         </tbody>
         </table>
