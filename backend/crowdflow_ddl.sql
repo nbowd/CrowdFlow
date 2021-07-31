@@ -4,11 +4,11 @@
 
 DROP TABLE IF EXISTS `Events`;
 CREATE TABLE `Events` (
-    `eventID` int AUTO_INCREMENT NOT NULL,
-    `eventName` varchar(50) NOT NULL,
-    `musicType` varchar(15) NOT NULL,
-    `eventDate` date NOT NULL,
-    `eventTime` time NOT NULL,
+    `eventID` INT AUTO_INCREMENT NOT NULL,
+    `eventName` VARCHAR(50) NOT NULL,
+    `musicType` VARCHAR(15) NOT NULL,
+    `eventDate` DATE NOT NULL,
+    `eventTime` TIME NOT NULL,
     `isCancelled` TINYINT(1) NOT NULL,
     PRIMARY KEY (`eventID`) 
 );
@@ -24,14 +24,14 @@ INSERT INTO `Events` VALUES (84, 'Test Show 1', 'Rock', '2013-02-14', '19:30:00'
 DROP TABLE IF EXISTS `Fans`;
 
 CREATE TABLE `Fans`(
-  `fanID` INT AUTO_INCREMENT UNIQUE NOT NULL,
+  `fanID` int AUTO_INCREMENT UNIQUE NOT NULL,
   `firstName` VARCHAR(50) NOT NULL,
   `lastName` VARCHAR(50) NOT NULL,
   `gender` VARCHAR(20) NOT NULL,
   `birthdate` DATE NOT NULL,
   `phone` VARCHAR(20),
   `email` VARCHAR(70),
-  `membership` BOOLEAN NOT NULL,
+  `membership` TINYINT(1) NOT NULL,
   `comment` TINYTEXT, 
   PRIMARY KEY (`fanID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -108,15 +108,15 @@ UNLOCK TABLES;
 
 DROP TABLE IF EXISTS `Tickets`;
 CREATE TABLE `Tickets` (
-    `ticketID` int AUTO_INCREMENT NOT NULL,
-    `eventID` int NOT NULL,
-    `seat` int NOT NULL,
-    `row` char(1) NOT NULL,
-    `section` char(3) NOT NULL,
-    `price` float NOT NULL,
-    `paymentMethod` varchar(10) NOT NULL,
-    `soldByEmployeeID` int NOT NULL,
-    `soldToFanID` int NOT NULL,
+    `ticketID` INT AUTO_INCREMENT NOT NULL,
+    `eventID` INT NOT NULL,
+    `seat` INT NOT NULL,
+    `row` CHAR(1) NOT NULL,
+    `section` CHAR(3) NOT NULL,
+    `price` FLOAT NOT NULL,
+    `paymentMethod` VARCHAR(10) NOT NULL,
+    `soldByEmployeeID` INT,
+    `soldToFanID` INT NOT NULL,
     `isWillcall` TINYINT(1) NOT NULL,
     `isValid` TINYINT(1) NOT NULL,
     PRIMARY KEY (`ticketID`),
@@ -137,8 +137,8 @@ INSERT INTO `Tickets` VALUES (14, 84, 10, 'c', 'ccc', 55.00, 'visa', 212, 524, 0
 
 DROP TABLE IF EXISTS `Events_fans`;
 CREATE TABLE `Events_fans` (
-    `eventID` int NOT NULL,
-    `fanID` int NOT NULL,
+    `eventID` INT NOT NULL,
+    `fanID` INT NOT NULL,
     PRIMARY KEY (`eventID`, `fanID`),
     FOREIGN KEY (`eventID`) REFERENCES `Events`(`eventID`) ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (`fanID`) REFERENCES `Fans`(`fanID`) ON DELETE CASCADE ON UPDATE CASCADE
