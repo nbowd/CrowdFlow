@@ -3,7 +3,7 @@ require('express-async-errors')  // Handles errors so try/catch isn't needed any
 const app = express()
 const middleware = require('./utils/middleware')
 
-const fansRouter = require('/routers/fans') // EXAMPLE
+const fansRouter = require('./routers/fans') // EXAMPLE
 
 // const cors = require('cors')  // Not sure if needed yet
 
