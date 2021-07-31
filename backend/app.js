@@ -14,6 +14,7 @@ app.use(middleware.requestLogger)
 
 // Routers
 // Events router
+app.use('/events', eventsRouter)
 
 // Fans router
 app.use('/fans', fansRouter) // EXAMPLE
