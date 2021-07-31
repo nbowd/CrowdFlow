@@ -27,119 +27,6 @@
             <div><button data-close-button class="table-button">Cancel</button><button class="table-button">Delete</button></div>
         </div>
     </div>
-        
-        <!-- THIS WILL BE POPULATED WITH DOM -->
-    <div class="modal" id="ticket-edit-modal">
-        <div class="modal-header">
-            <div class="title">Edit Ticket Information</div>
-            <button data-close-button class="close-button">&times;</button>
-        </div>
-        <div class="modal-body">
-            <form class="modal-form">
-                <div>
-                    <label for="eventIDUpdateInput">Event</label>
-                    <select name="eventIDUpdateInput" id="eventIDUpdateInput">
-                        <option value="1">Test Event 1</option>
-                        <option value="2">Test Event 2</option>
-                        <option value="3">Test Event 3</option>
-                        <option value="4">Test Event 4</option>
-                    </select>
-                    </div>
-                    <div>
-                    <label for="seatUpdateInput">Seat</label>
-                    <select name="seatUpdateInput" id="seatUpdateInput">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6</option>
-                        <option value="7">7</option>
-                        <option value="8">8</option>
-                        <option value="9">9</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                    </select>
-                    <label for="rowUpdateInput">Row</label>
-                    <select name="rowUpdateInput" id="rowUpdateInput">
-                        <option value="a">A</option>
-                        <option value="b">B</option>
-                        <option value="c">C</option>
-                        <option value="d">D</option>
-                        <option value="e">E</option>
-                        <option value="f">F</option>
-                        <option value="g">G</option>
-                        <option value="h">H</option>
-                        <option value="i">I</option>
-                        <option value="j">J</option>
-                        <option value="k">K</option>
-                        <option value="l">L</option>
-                        <option value="m">M</option>
-                        <option value="n">N</option>
-                        <option value="o">O</option>
-                    </select>
-                    <label for="sectionUpdateInput">Section</label>
-                    <select name="sectionUpdateInput" id="sectionUpdateInput">
-                        <option value="aaa">AAA</option>
-                        <option value="bbb">BBB</option>
-                        <option value="ccc">CCC</option>
-                        <option value="ddd">DDD</option>
-                        <option value="eee">EEE</option>
-                    </select>
-                    </div>
-                    <div>
-                    <label for="priceUpdateInput">Price</label>
-                    <input type="number" name="priceUpdateInput" id="priceUpdateInput" min="0" placeholder="0.00" step="0.01" required="required">
-                    <label for="paymentMethodUpdateInput">Payment Type</label>
-                    <select name="paymentMethodUpdateInput" id="paymentMethodUpdateInput">
-                        <option value="cash">Cash</option>
-                        <option value="visa">Visa</option>
-                        <option value="mastercard">MasterCard</option>
-                        <option value="amex">AMEX</option>
-                        <option value="discover">Discover</option>
-                    </select>
-                    </div>
-                    <div>
-                    <label for="soldByEmployeeIDUpdateInput">Sold By</label>
-                    <select name="soldByEmployeeIDUpdateInput" id="soldByEmployeeIDUpdateInput">
-                        <option value="1">Test Employee 1</option>
-                        <option value="2">Test Employee 2</option>
-                        <option value="3">Test Employee 3</option>
-                    </select>
-                    <label for="soldToFanIDUpdateInput">Sold To</label>
-                    <select name="soldToFanIDUpdateInput" id="soldToFanIDUpdateInput">
-                        <option value="1">Test Fan 1</option>
-                        <option value="2">Test Fan 2</option>
-                        <option value="3">Test Fan 3</option>
-                    </select>
-                    </div>
-                    <div>
-                    <label for="isWillcallUpdateInput">Will Call?</label>
-                    <select name="isWillcallUpdateInput" id="isWillcallUpdateInput">
-                        <option value="1">Yes</option>
-                        <option value="0">No</option>
-                    </select>
-                    <label for="isValidUpdateInput">Valid?</label>
-                    <select name="isValidUpdateInput" id="isValidUpdateInput">
-                        <option value="1">Yes</option>
-                        <option value="0">No</option>
-                    </select>
-                    </div>
-                    <div>
-                        <input type="submit" name="submit" id="submit" value="Update">
-                    </div>
-            </form>
-        </div>
-    </div>
 
     <h2>Add New Ticket</h2>
     <form>
@@ -274,7 +161,7 @@
             <td>1</td>
             <td>0</td>
             <td>1</td>
-            <td><button data-modal-target="#ticket-edit-modal" class="table-button">Edit</button></td>
+            <td><button class = "table-button">Update</button></td>
             <td><button data-modal-target="#delete-modal" class = "table-button">Remove</button></td>
         </tr>
         <tr>
@@ -289,7 +176,7 @@
             <td>10007</td>
             <td>1</td>
             <td>1</td>
-            <td><button data-modal-target="#ticket-edit-modal" class="table-button">Edit</button></td>
+            <td><button class = "table-button">Update</button></td>
             <td><button data-modal-target="#delete-modal" class = "table-button">Remove</button></td>
         </tr>
         <tr>
@@ -304,7 +191,7 @@
             <td>841</td>
             <td>0</td>
             <td>0</td>
-            <td><button data-modal-target="#ticket-edit-modal" class="table-button">Edit</button></td>
+            <td><button class = "table-button">Update</button></td>
             <td><button data-modal-target="#delete-modal" class = "table-button">Remove</button></td>
         </tr>
     </table>

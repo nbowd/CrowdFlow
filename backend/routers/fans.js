@@ -4,14 +4,15 @@ const mysql = require('../utils/config')
 const getAllQuery = "SELECT * FROM Fans";
 
 // ROUTES
-const getAllData = async (response) => {
-  await mysql.pool.query(getAllQuery, (rows) => {
+const getAllData = (response) => {
+  // err and fields are important for pool.query apparently
+  mysql.pool.query(getAllQuery, (err, rows, fields) => {
     response.json({"rows":rows})
   })
 }
 
-fansRouter.get('/', async (request, response) => {
-  await getAllData(response)
+fansRouter.get('/', (request, response) => {
+    getAllData(response)
 })
 
 

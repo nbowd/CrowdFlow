@@ -29,29 +29,6 @@
                     <div><button data-close-button class="table-button">Cancel</button><button class="table-button">Delete</button></div>
                 </div>
             </div>
-            
-            <!-- THIS WILL BE POPULATED WITH DOM -->
-            <div class="modal" id="employee-job-edit-modal">
-                <div class="modal-header">
-                    <div class="title">Edit Employee_job Relationship</div>
-                    <button data-close-button class="close-button">&times;</button>
-                </div>
-                <div class="modal-body">
-                    <form class="modal-form">
-                        <div>
-                            <label for="employeeID">EmployeeID</label>
-                            <input type="number" name="employeeID" id="employeeID">
-                        </div>  
-                        <div>
-                            <label for="jobID">JobID</label>
-                            <input type="number" name="jobID" id="jobID">
-                        </div>
-                        <div>
-                            <input type="submit" name="submit" id="submit" value="Add">
-                        </div>
-                    </form>
-                </div>
-            </div>
 
             <hr>
             <h2>Add New Entry</h2>
@@ -97,12 +74,12 @@
                 <tr>
                     <td>21</td>
                     <td>5</td>
-                    <td><button data-modal-target="#employee-job-edit-modal" class="table-button">Edit</button><button data-modal-target="#delete-modal" class="table-button">Remove</button></td>
+                    <td><button class="table-button">Update</button><button data-modal-target="#delete-modal" class="table-button">Remove</button></td>
                 </tr
                 <tr>
                     <td>15</td>
                     <td>2</td>
-                    <td><button data-modal-target="#employee-job-edit-modal" class="table-button">Edit</button><button data-modal-target="#delete-modal" class="table-button">Remove</button></td>
+                    <td><button class="table-button">Update</button><button data-modal-target="#delete-modal" class="table-button">Remove</button></td>
                 </tr>
                 </tbody>
                 </table>
