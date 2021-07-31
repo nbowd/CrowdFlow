@@ -87,7 +87,7 @@
                     <button data-close-button class="close-button">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <form class="modal-form">
+                    <form class="modal-form" id="fan-form">
                         <div>
                             <label for="firstName">First Name:</label>
                             <input type="text" name="firstName" id="firstName" required>
@@ -118,8 +118,8 @@
                             <input type="checkbox" name="membership" id="membership">
                         </div>
                         <div>
-                            <label for="comments">Comments:</label>
-                            <textarea name="comments" id="comments"></textarea>
+                            <label for="comments">Comment:</label>
+                            <textarea name="comment" id="comment"></textarea>
                         </div>
             
                         <div>
@@ -203,6 +203,7 @@
     membership: bool, not NULL (True if premium member, False otherwise)
     comments: varchar(200)  (Comments from venue on fan, not available to fan) 
     -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="script.js"></script>
     </body>
 </html>

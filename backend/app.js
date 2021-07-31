@@ -5,10 +5,11 @@ const middleware = require('./utils/middleware')
 
 const fansRouter = require('./routers/fans') // EXAMPLE
 
-// const cors = require('cors')  // Not sure if needed yet
+const cors = require('cors')  // Not sure if needed yet
 
 // Build Options
-app.use(express.urlencoded({ extended:false })); // not sure if this is needed
+app.use(cors())
+app.use(express.urlencoded({ extended: false })); // not sure if this is needed
 app.use(express.json())
 app.use(middleware.requestLogger)
 
