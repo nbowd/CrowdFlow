@@ -88,12 +88,8 @@ CREATE TABLE `Employee_job_titles` (
   `jobID` INT NOT NULL,
   `employeeID` INT NOT NULL,
   PRIMARY KEY (`jobID`, `employeeID`),
-  FOREIGN KEY `fk_job`(`jobID`)
-  REFERENCES `Job_titles`(`jobID`)
-  ON DELETE CASCADE,
-  FOREIGN KEY `fk_employee`(`employeeID`)
-  REFERENCES `Employees`(`employeeID`)
-  ON DELETE CASCADE
+  FOREIGN KEY (`jobID`) REFERENCES `Job_titles`(`jobID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (`employeeID`) REFERENCES `Employees`(`employeeID`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Data dump for `Employee_job_titles`
