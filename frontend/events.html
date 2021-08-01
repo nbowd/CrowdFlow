@@ -66,61 +66,23 @@
         </div>
     </form>
     <hr>
-    <h2>Search by Date</h2>
-    <form>
-        <label for="dateFilter">Occurred/occurs</label>
-        <select name="dateFilter" id="dateFilter">
-            <option value="on">On</option>
-            <option value="before">Before</option>
-            <option value="after">After</option>
-        </select>
-        <label for="filterDate">Date</label>
-        <input type="date" required min="2011-07-01" max="2022-07-01" name="filterDate" id="filterDate">
-    </form>
+    <div id="searchContainer">
+        <h2>Search by Date</h2>
+        <form>
+            <label for="dateFilter">Occurred/occurs</label>
+            <select name="dateFilter" id="dateFilter">
+                <option value="on">On</option>
+                <option value="before">Before</option>
+                <option value="after">After</option>
+            </select>
+            <label for="filterDate">Date</label>
+            <input type="date" required min="2011-07-01" max="2022-07-01" name="filterDate" id="filterDate">
+            <input type="submit" name="filterSubmit" id="filterSubmit" value="Search">
+        </form>
+    </div>
     <hr>
-    <table>
-        <thead>
-            <th>Event ID</th>
-            <th>Event Name</th>
-            <th>Music Type</th>
-            <th>Event Date</th>
-            <th>Event Time</th>
-            <th>Cancelled?</th>
-            <th></th>
-            <th></th>
-        </thead>
-        <tr>
-            <th>84</th>
-            <td>Test Show 1</td>
-            <td>Rock</td>
-            <td>02/14/2013</td>
-            <td>19:30:00</td>
-            <td>0</td>
-            <td><button class = "table-button">Update</button></td>
-            <td><button data-modal-target="#delete-modal" class = "table-button">Remove</button></td>
-        </tr>
-        <tr>
-            <th>582</th>
-            <td>Test Show 2</td>
-            <td>Hip Hop</td>
-            <td>06/17/2017</td>
-            <td>19:05:00</td>
-            <td>0</td>
-            <td><button class = "table-button">Update</button></td>
-            <td><button data-modal-target="#delete-modal" class = "table-button">Remove</button></td>
-        </tr>
-        <tr>
-            <th>978</th>
-            <td>Test Show 3</td>
-            <td>Blues</td>
-            <td>03/13/2020</td>
-            <td>20:00:00</td>
-            <td>1</td>
-            <td><button class = "table-button">Update</button></td>
-            <td><button data-modal-target="#delete-modal" class = "table-button">Remove</button></td>
-        </tr>
-    </table>
     </main>
+    <script src="eventsScript.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

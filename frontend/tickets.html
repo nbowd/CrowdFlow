@@ -32,16 +32,12 @@
     <form>
         <div>
         <label for="eventIDAddInput">Event</label>
-        <select name="eventIDAddInput" id="eventIDAddInput">
-            <option value="1">Test Event 1</option>
-            <option value="2">Test Event 2</option>
-            <option value="3">Test Event 3</option>
-            <option value="4">Test Event 4</option>
+        <select name="eventIDAddInput" id="eventIDAddInput" required>
         </select>
         </div>
         <div>
         <label for="seatAddInput">Seat</label>
-        <select name="seatAddInput" id="seatAddInput">
+        <select name="seatAddInput" id="seatAddInput" required>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -64,7 +60,7 @@
             <option value="20">20</option>
         </select>
         <label for="rowAddInput">Row</label>
-        <select name="rowAddInput" id="rowAddInput">
+        <select name="rowAddInput" id="rowAddInput" required>
             <option value="a">A</option>
             <option value="b">B</option>
             <option value="c">C</option>
@@ -82,7 +78,7 @@
             <option value="o">O</option>
         </select>
         <label for="sectionAddInput">Section</label>
-        <select name="sectionAddInput" id="sectionAddInput">
+        <select name="sectionAddInput" id="sectionAddInput" required>
             <option value="aaa">AAA</option>
             <option value="bbb">BBB</option>
             <option value="ccc">CCC</option>
@@ -94,7 +90,7 @@
         <label for="priceAddInput">Price</label>
         <input type="number" name="priceAddInput" id="priceAddInput" min="0" placeholder="0.00" step="0.01" required="required">
         <label for="paymentMethodAddInput">Payment Type</label>
-        <select name="paymentMethodAddInput" id="paymentMethodAddInput">
+        <select name="paymentMethodAddInput" id="paymentMethodAddInput" required>
             <option value="cash">Cash</option>
             <option value="visa">Visa</option>
             <option value="mastercard">MasterCard</option>
@@ -105,25 +101,19 @@
         <div>
         <label for="soldByEmployeeIDAddInput">Sold By</label>
         <select name="soldByEmployeeIDAddInput" id="soldByEmployeeIDAddInput">
-            <option value="1">Test Employee 1</option>
-            <option value="2">Test Employee 2</option>
-            <option value="3">Test Employee 3</option>
         </select>
         <label for="soldToFanIDAddInput">Sold To</label>
-        <select name="soldToFanIDAddInput" id="soldToFanIDAddInput">
-            <option value="1">Test Fan 1</option>
-            <option value="2">Test Fan 2</option>
-            <option value="3">Test Fan 3</option>
+        <select name="soldToFanIDAddInput" id="soldToFanIDAddInput" required>
         </select>
         </div>
         <div>
         <label for="isWillcallAddInput">Will Call?</label>
-        <select name="isWillcallAddInput" id="isWillcallAddInput">
+        <select name="isWillcallAddInput" id="isWillcallAddInput" required>
             <option value="1">Yes</option>
             <option value="0">No</option>
         </select>
         <label for="isValidAddInput">Valid?</label>
-        <select name="isValidAddInput" id="isValidAddInput">
+        <select name="isValidAddInput" id="isValidAddInput" required>
             <option value="1">Yes</option>
             <option value="0">No</option>
         </select>
@@ -133,69 +123,8 @@
         </div>
     </form>
     <hr>
-    <table>
-        <thead>
-            <th>Ticket ID</th>
-            <th>Event</th>
-            <th>Seat</th>
-            <th>Row</th>
-            <th>Section</th>
-            <th>Price</th>
-            <th>Payment Type</th>
-            <th>Sold By</th>
-            <th>Sold To</th>
-            <th>Will Call?</th>
-            <th>Valid?</th>
-            <th></th>
-            <th></th>
-        </thead>
-        <tr>
-            <th>14</th>
-            <td>3</td>
-            <td>10</td>
-            <td>c</td>
-            <td>ccc</td>
-            <td>55.00</td>
-            <td>visa</td>
-            <td>2</td>
-            <td>1</td>
-            <td>0</td>
-            <td>1</td>
-            <td><button class = "table-button">Update</button></td>
-            <td><button data-modal-target="#delete-modal" class = "table-button">Remove</button></td>
-        </tr>
-        <tr>
-            <th>27</th>
-            <td>48</td>
-            <td>17</td>
-            <td>a</td>
-            <td>eee</td>
-            <td>100.00</td>
-            <td>cash</td>
-            <td>10</td>
-            <td>10007</td>
-            <td>1</td>
-            <td>1</td>
-            <td><button class = "table-button">Update</button></td>
-            <td><button data-modal-target="#delete-modal" class = "table-button">Remove</button></td>
-        </tr>
-        <tr>
-            <th>1003</th>
-            <td>127</td>
-            <td>20</td>
-            <td>d</td>
-            <td>aaa</td>
-            <td>37.50</td>
-            <td>amex</td>
-            <td>18</td>
-            <td>841</td>
-            <td>0</td>
-            <td>0</td>
-            <td><button class = "table-button">Update</button></td>
-            <td><button data-modal-target="#delete-modal" class = "table-button">Remove</button></td>
-        </tr>
-    </table>
     </main>
+    <script src="ticketsScript.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
