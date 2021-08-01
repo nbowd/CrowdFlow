@@ -76,7 +76,10 @@ form {
 	margin-bottom: 20px;
 }
 
-#submit {
+#submit,
+#submitUpdate,
+#cancelUpdate,
+#filterSubmit {
 	background: #02075d;
 	color: white;
 	border: 2px solid;
@@ -88,7 +91,10 @@ form {
 	font-weight: bold;
 }
 
-#submit:hover {
+#submit:hover,
+#submitUpdate:hover,
+#cancelUpdate:hover,
+#filterSubmit:hover{
 	background: none;
 	color: #02075d;
 }
