@@ -9,7 +9,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
         <title>Employees | CrowdFlow Ticketing</title>
     </head>
-    <body>
+    <body onload=onLoad()>
         <button class="table-button back-button" id='back-button' onclick="window.history.back()">&larr;</button>
         <main class="container">
             <div id="overlay"></div>
@@ -24,13 +24,56 @@
                 </div>
                 <div class="modal-body delete-modal-body">
                     <div>Are you sure you want to delete this?</div>
-                    <div><button data-close-button class="table-button">Cancel</button><button class="table-button">Delete</button></div>
+                    <div><button data-close-button class="table-button">Cancel</button><button class="table-button" id="delete-button">Delete</button></div>
+                </div>
+            </div>
+
+            <div class="modal" id="employees-edit-modal">
+                <div class="modal-header">
+                    <div class="title">Edit Employee Information</div>
+                    <button data-close-button class="close-button">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form class="modal-form" id="employees-edit">
+                        <div>
+                            <label for="id">Employee ID:</label>
+                            <input type="text" name="id" id="id-edit" disabled>
+                        </div>
+                        <div>
+                            <label for="firstName">First Name:</label>
+                            <input type="text" name="firstName" id="firstName-edit" required>
+                        </div>
+                        <div>
+                            <label for="lastName">Last Name:</label>
+                            <input type="text" name="lastName" id="lastName-edit" required>
+                        </div>
+                        <div>
+                            <label for="birthdate">Birthdate:</label>
+                            <input type="date" name="birthdate" id="birthdate-edit" required>
+                        </div>
+                        <div>
+                            <label for="startDate">Start Date:</label>
+                            <input type="date" name="startDate" id="startDate-edit" required>
+                        </div>
+                        <div>
+                            <label for="phone">Phone Number:</label>
+                            <input type="text" name="phone" id="phone-edit">
+                        </div>
+                    
+                        <div>
+                            <label for="email">Email address:</label>
+                            <input type="text" name="email" id="email-edit">
+                        </div>
+                        <div>
+                            <input id="submit" type="submit" value="Submit">
+                        </div>
+                    </form>
                 </div>
             </div>
         
     
             <h2>Add New Employee</h2>
-            <form>
+            <form id="employees-form">
                 <div>
                     <label for="firstName">First Name:</label>
                     <input type="text" name="firstName" id="firstName" required>
@@ -44,8 +87,8 @@
                     <input type="date" name="birthdate" id="birthdate" required>
                 </div>
                 <div>
-                    <label for="start-date">Start date:</label>
-                    <input type="date" name="start-date" id="start-date" required>
+                    <label for="startDate">Start date:</label>
+                    <input type="date" name="startDate" id="startDate" required>
                 </div>
                 <div>
                     <label for="phone">Phone Number:</label>
@@ -63,16 +106,18 @@
         <hr>
 
         <h2>Search for Employee</h2>
-        <form>
+        <form id='employees-filter'>
             <label for="id-search">Search by EmployeeID:</label>
-            <input type='text' name ="id-search" id="eid-search">
+            <input type='text' name ="id-search" id="idSearch">
             <div>OR</div>
             <label for="filter">Search with filter:</label>
-            <input list="filter-opts" name="filter">
-            <datalist id="filter-opts">
-                <option value="First Name">
-                <option value="Last Name">
-            </datalist>
+            <select name="nameSearch" id="nameSearch">
+                <optgroup id="filter-opts">
+                    <option value="">None</option>
+                    <option value="first">First Name</option>
+                    <option value="last">Last Name</option>
+                </optgroup>
+            </select>
             <br>
             <input id="submit" type="submit">
         </form>
@@ -81,7 +126,7 @@
 
         <h2>Current Employees</h2>
 
-        <table>
+        <table id="employees-table">
         <thead>
             <tr>
             <th>Employee ID</th>
@@ -94,9 +139,10 @@
             <th></th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="employees-tbody">
+            
             <!-- SAMPLE DATA - This will be added using the DOM -->
-            <tr>
+            <!-- <tr>
             <td>89</td>
             <td>Ron</td>
             <td>Swanson</td>
@@ -115,11 +161,13 @@
             <td>123-456-7890</td>
             <td>wannagofast@gmail.com</td>
             <td><button class="table-button">Update</button><button data-modal-target="#delete-modal" class="table-button">Remove</button></td>
-            </tr>
+            </tr> -->
         </tbody>
         </table>
 
     </main>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="employeesScript.js"></script>
     <script src="script.js"></script>
     </body>
 </html>

@@ -8,11 +8,14 @@ const eventsRouter = require('./routers/events')
 const ticketsRouter = require('./routers/tickets')
 const events_fansRouter = require('./routers/events_fans')
 const employeesRouter = require('./routers/employees')
+const jobTitlesRouter = require('./routers/job_titles')
+const employeesJobTitlesRouter = require('./routers/employees_job_titles')
 
-// const cors = require('cors')  // Not sure if needed yet
+const cors = require('cors')  // Not sure if needed yet
 
 // Build Options
-app.use(express.urlencoded({ extended:false })); // not sure if this is needed
+app.use(cors())
+app.use(express.urlencoded({ extended: false })); // not sure if this is needed
 app.use(express.json())
 app.use(middleware.requestLogger)
 
@@ -27,10 +30,13 @@ app.use('/fans', fansRouter) // EXAMPLE
 app.use('/events_fans', events_fansRouter)
 
 // Employees router
+app.use('/employees', employeesRouter)
 
 // JobTitles router
+app.use('/jobs', jobTitlesRouter)
 
 // Employees_job_titles router
+app.use('/emp_jobs', employeesJobTitlesRouter)
 
 //  Tickets router
 app.use('/tickets', ticketsRouter)
