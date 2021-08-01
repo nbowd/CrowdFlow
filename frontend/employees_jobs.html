@@ -11,7 +11,7 @@
 
         <title>Employee Jobs | CrowdFlow Ticketing</title>
     </head>
-    <body>
+    <body onload=onLoad()>
         <button class="table-button back-button" id='back-button' onclick="window.history.back()">&larr;</button>
         <main class="container">
             <div id="overlay"></div>
@@ -26,33 +26,55 @@
                 </div>
                 <div class="modal-body delete-modal-body">
                     <div>Are you sure you want to delete this?</div>
-                    <div><button data-close-button class="table-button">Cancel</button><button class="table-button">Delete</button></div>
+                    <div><button data-close-button class="table-button">Cancel</button><button class="table-button" id="delete-button">Delete</button></div>
+                </div>
+            </div>
+
+            <div class="modal" id="empJobs-edit-modal">
+                <div class="modal-header">
+                    <div class="title">Edit Entry Information</div>
+                    <button data-close-button class="close-button">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form class="modal-form" id="empJobs-edit">
+                        <div>
+                            <label for="jobID">Job ID:</label>
+                            <input type="text" name="jobID" id="jobID-edit" required>
+                        </div>
+                        <div>
+                            <label for="employeeID">Employee ID:</label>
+                            <input type="text" name="employeeID" id="employeeID-edit" required>
+                        </div>
+                        <div>
+                            <input id="submit" type="submit" value="Submit">
+                        </div>
+                    </form>
                 </div>
             </div>
 
             <hr>
             <h2>Add New Entry</h2>
-            <form>
+            <form id="empJobs-form">
+                <div>
+                    <label for="jobID">JobID</label>
+                    <input type="number" name="jobID" id="jobID">
+                </div>                
                 <div>
                     <label for="employeeID">EmployeeID</label>
                     <input type="number" name="employeeID" id="employeeID">
                 </div>  
                 <div>
-                    <label for="jobID">JobID</label>
-                    <input type="number" name="jobID" id="jobID">
-                </div>
-                <div>
                     <input type="submit" name="submit" id="submit" value="Add">
                 </div>
             </form>
             <hr>
-            <form >
+            <form id="empJobs-filter">
                 <h2>Search by ID</h2>
-                <label for="search-employees">Search by EmployeeID</label>
-                <input type="number" name="search-employees" id="search-employees">
+                <label for="jobSearch">Search by JobID</label>
+                <input type="number" name="jobSearch" id="jobSearch">
                 <p>OR</p>
-                <label for="search-jobs">Search by JobID</label>
-                <input type="number" name="search-jobs" id="search-jobs">
+                <label for="empSearch">Search by EmployeeID</label>
+                <input type="number" name="empSearch" id="empSearch">
                 <br>
                 <input id="submit" type="submit" value="Submit">
             </form>
@@ -61,17 +83,17 @@
 
             <h2>Current Roles</h2>
 
-            <table>
+            <table id="empJobs-table">
                 <thead>
                 <tr>
-                    <th>Employee ID</th>
                     <th>Job ID</th>
+                    <th>Employee ID</th>
                     <th></th>
                 </tr>
                 </thead>
-                <tbody >
+                <tbody id="empJobs-tbody">
                 <!-- SAMPLE DATA -->
-                <tr>
+                <!-- <tr>
                     <td>21</td>
                     <td>5</td>
                     <td><button class="table-button">Update</button><button data-modal-target="#delete-modal" class="table-button">Remove</button></td>
@@ -80,12 +102,13 @@
                     <td>15</td>
                     <td>2</td>
                     <td><button class="table-button">Update</button><button data-modal-target="#delete-modal" class="table-button">Remove</button></td>
-                </tr>
+                </tr> -->
                 </tbody>
                 </table>
 
         </main>
-
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="employeeJobsScript.js"></script>
         <script src="script.js"></script>
     </body>
 </html>

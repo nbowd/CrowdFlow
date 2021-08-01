@@ -13,7 +13,7 @@ const idFilterQuery = "SELECT fanID, firstName, lastName, birthdate, gender, pho
 const fnameFilterQuery = "SELECT fanID, firstName, lastName, birthdate, gender, phone, email, membership, comment FROM Fans ORDER BY firstName ASC";
 
 // Search by Fan Last Name
-const lnameFilterQuery = "SELECT fanID, lastName, firstName, birthdate, gender, phone, email, membership, comment FROM Fans ORDER BY lastName ASC";
+const lnameFilterQuery = "SELECT fanID, firstName, lastName, birthdate, gender, phone, email, membership, comment FROM Fans ORDER BY lastName ASC";
 
 // Fan updated from button
 const updateQuery = "UPDATE Fans SET firstName=?, lastName=?, birthdate=?, gender=?, phone=?, email=?, membership=?, comment=? WHERE fanID=?";
@@ -37,6 +37,36 @@ fansRouter.get('/', (request, response) => {
     getAllData(response)
 })
 
+fansRouter.get('/searchid', (request, response) => {
+    mysql.pool.query(idFilterQuery, [request.query.id], (err, rows, fields) => {
+        if(err){
+            next(err);
+            return;
+          }
+        response.json({ "rows": rows })
+    })
+})
+
+fansRouter.get('/first', (request, response) => {
+    mysql.pool.query(fnameFilterQuery, (err, rows, fields) => {
+        if(err){
+            next(err);
+            return;
+          }
+        response.json({ "rows": rows })
+    })
+})
+
+fansRouter.get('/last', (request, response) => {
+    mysql.pool.query(lnameFilterQuery, (err, rows, fields) => {
+        if(err){
+            next(err);
+            return;
+          }
+        response.json({ "rows": rows })
+    })
+})
+
 fansRouter.post('/', (request,response,next) => {
     // Destructures properties from request body into variables named the same
     var {firstName, lastName, birthdate, gender, phone, email, membership, comment} = request.body;
@@ -51,7 +81,6 @@ fansRouter.post('/', (request,response,next) => {
 });
 
 fansRouter.put('/', (request,response,next) => {
-    var context = {};
     var {firstName, lastName, birthdate, gender, phone, email, membership, comment} = request.body;
   
     mysql.pool.query(updateQuery,
@@ -66,7 +95,6 @@ fansRouter.put('/', (request,response,next) => {
 });
 
 fansRouter.delete('/', (request,response,next) => {
-    var context = {};
     mysql.pool.query(deleteQuery, [request.query.id], (err, result) => {
       if(err){
         next(err);

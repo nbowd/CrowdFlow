@@ -11,7 +11,7 @@
         
         <title>Fans | CrowdFlow Ticketing</title>
     </head>
-    <body onload=fanLoad()>
+    <body onload=onLoad()>
         <button class="table-button back-button" id='back-button' onclick="window.history.back()">&larr;</button>
         <main class="container">
             <div id='overlay'></div> <!-- This can go anywhere, rendered with css and javascript -->
@@ -32,13 +32,13 @@
             </div>
             
             <!-- THIS WILL BE POPULATED WITH DOM -->
-            <div class="modal" id="fan-edit-modal">
+            <div class="modal" id="fans-edit-modal">
                 <div class="modal-header">
                     <div class="title">Edit Fan Information</div>
                     <button data-close-button class="close-button">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <form class="modal-form" id="fan-edit">
+                    <form class="modal-form" id="fans-edit">
                         <div>
                             <label for="id">Fan ID:</label>
                             <input type="text" name="id" id="id-edit" disabled>
@@ -84,14 +84,14 @@
                 </div>
             </div>
 
-            <button data-modal-target="#fan-modal" class="form-button">Add Fan</button>
-            <div class="modal " id="fan-modal">
+            <button data-modal-target="#fans-modal" class="form-button">Add Fan</button>
+            <div class="modal " id="fans-modal">
                 <div class="modal-header">
                     <div class="title">Add New Fan</div>
                     <button data-close-button class="close-button">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <form class="modal-form" id="fan-form">
+                    <form class="modal-form" id="fans-form">
                         <div>
                             <label for="firstName">First Name:</label>
                             <input type="text" name="firstName" id="firstName" required>
@@ -136,24 +136,26 @@
         <!-- Can be searched with an exact fanID 
         or a more general search can be done using either first or last name-->
             <h2>Search for Fan</h2>
-            <form>
-            <label for="id-search">Search by FanID:</label>
-            <input type='text' name ="id-search" id="id-search">
+            <form id="fans-filter">
+            <label for="idSearch">Search by FanID:</label>
+            <input type='text' name ="idSearch" id="idSearch">
             <p>OR</p>
             <label for="filter">Search with filter:</label>
-            <input list="filter-opts" name="filter">
-            <datalist id="filter-opts">
-                <option value="First Name">
-                <option value="Last Name">
-            </datalist>
+            <select name="nameSearch" id="nameSearch">
+                <optgroup id="filter-opts">
+                    <option value="">None</option>
+                    <option value="first">First Name</option>
+                    <option value="last">Last Name</option>
+                </optgroup>
+            </select>
             <br>
             <input id="submit" type="submit" value="Search">
             </form>
         
             <hr>
 
-            <table id="fan-table">
-            <thead id="fan-thead">
+            <table id="fans-table">
+            <thead id="fans-thead">
                 <tr>
                     <th>Fan ID</th>
                     <th>First Name</th>
@@ -167,7 +169,7 @@
                     <th></th>
                 </tr>
             </thead>
-            <tbody id="fan-tbody">
+            <tbody id="fans-tbody">
                 <!-- SAMPLE DATA - This will be added using the DOM -->
                 <!-- <tr>
                     <td>62</td>
@@ -208,6 +210,7 @@
     comment: varchar(200)  (comment from venue on fan, not available to fan) 
     -->
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="fansScript.js"></script>
     <script src="script.js"></script>
     </body>
 </html>

@@ -4,6 +4,9 @@ const app = express()
 const middleware = require('./utils/middleware')
 
 const fansRouter = require('./routers/fans') // EXAMPLE
+const employeesRouter = require('./routers/employees')
+const jobTitlesRouter = require('./routers/job_titles')
+const employeesJobTitlesRouter = require('./routers/employees_job_titles')
 
 const cors = require('cors')  // Not sure if needed yet
 
@@ -22,10 +25,13 @@ app.use('/fans', fansRouter) // EXAMPLE
 // Events_fans router
 
 // Employees router
+app.use('/employees', employeesRouter)
 
 // JobTitles router
+app.use('/jobs', jobTitlesRouter)
 
 // Employees_job_titles router
+app.use('/emp_jobs', employeesJobTitlesRouter)
 
 //  Tickets router
 

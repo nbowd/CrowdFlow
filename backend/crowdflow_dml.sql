@@ -67,79 +67,79 @@ INSERT INTO Events_fans (eventID, fanID) VALUES (:eventIDAddInput, :fanIDAddInpu
 -------- EMPLOYEE PAGE QUERIES --------
 
 -- Populate page table
-SELECT * FROM employees;
+SELECT * FROM Employees;
 
 -- Add new employee
-INSERT INTO employees (firstName, lastName, birthdate, startDate, phone, email) VALUES (:firstName, :lastName, :birthdate, :startDate, :phone, :email);
+INSERT INTO Employees (firstName, lastName, birthdate, startDate, phone, email) VALUES (:firstName, :lastName, :birthdate, :startDate, :phone, :email);
 
 -- Search by employeeID
-SELECT employeeID, firstName, lastName, birthdate, startDate, phone, email FROM employees WHERE employeeID = :employeeID;
+SELECT employeeID, firstName, lastName, birthdate, startDate, phone, email FROM Employees WHERE employeeID = :employeeID;
 
 -- Search by first name
-SELECT employeeID, firstName, lastName, birthdate, startDate, phone, email FROM employees ORDER BY firstName ASC;
+SELECT employeeID, firstName, lastName, birthdate, startDate, phone, email FROM Employees ORDER BY firstName ASC;
 
 -- Search by last name
-SELECT employeeID, lastName, firstName, birthdate, startDate, phone, email FROM employees ORDER BY lastName ASC;
+SELECT employeeID, lastName, firstName, birthdate, startDate, phone, email FROM Employees ORDER BY lastName ASC;
 
 -- Employee updated via button
-UPDATE employees SET lastName= :lastName, firstName= :firstName, birthdate= :birthdate, startDate= :startDate, phone= :phone, email= :email WHERE employeeID = :employeeID;
+UPDATE Employees SET lastName= :lastName, firstName= :firstName, birthdate= :birthdate, startDate= :startDate, phone= :phone, email= :email WHERE employeeID = :employeeID;
 
 -- Employee deleted via button
-DELETE FROM employees WHERE employeeID =:employeeID;
+DELETE FROM Employees WHERE employeeID =:employeeID;
 
 -------- FAN PAGE QUERIES --------
 
 -- Populate page table
-SELECT * FROM fans;
+SELECT * FROM Fans;
 
 -- Add new fan
-INSERT INTO fans (firstName, lastName, birthdate, gender, phone, email, membership, comment) VALUES (:firstName, :lastName, :birthdate, :gender, :phone, :email, :membership, :comment);
+INSERT INTO Fans (firstName, lastName, birthdate, gender, phone, email, membership, comment) VALUES (:firstName, :lastName, :birthdate, :gender, :phone, :email, :membership, :comment);
 
 -- Search by fanID
-SELECT fanID, firstName, lastName, birthdate, gender, phone, email, membership, comment FROM fans WHERE fanID = :fanID;
+SELECT fanID, firstName, lastName, birthdate, gender, phone, email, membership, comment FROM Fans WHERE fanID = :fanID;
 
 -- Search by Fan First Name
-SELECT fanID, firstName, lastName, birthdate, gender, phone, email, membership, comment FROM fans ORDER BY firstName ASC;
+SELECT fanID, firstName, lastName, birthdate, gender, phone, email, membership, comment FROM Fans ORDER BY firstName ASC;
 
 -- Search by Fan Last Name
-SELECT fanID, lastName, firstName, birthdate, gender, phone, email, membership, comment FROM fans ORDER BY lastName ASC;
+SELECT fanID, lastName, firstName, birthdate, gender, phone, email, membership, comment FROM Fans ORDER BY lastName ASC;
 
 -- Fan updated from button
-UPDATE fans SET lastName= :lastName, firstName= :firstName, birthdate= :birthdate, gender= :gender, phone= :phone, email= :email, membership= :membership, comment =:comment WHERE fanID= :fanID;
+UPDATE Fans SET lastName= :lastName, firstName= :firstName, birthdate= :birthdate, gender= :gender, phone= :phone, email= :email, membership= :membership, comment =:comment WHERE fanID= :fanID;
 
 -- Delete fan
-DELETE FROM fans WHERE fanID = :fanID;
+DELETE FROM Fans WHERE fanID = :fanID;
 
 -------- JOB TITLES PAGE QUERIES --------
 
 -- Populate page table
-SELECT * FROM job_titles;
+SELECT * FROM Job_titles;
 
 -- Add new job title
-INSERT INTO job_titles (jobID, title, description) VALUES (:jobID, :title, :description);
+INSERT INTO Job_titles (jobID, title, description) VALUES (:jobID, :title, :description);
 
 -- Update job from button
-UPDATE job_titles SET title=:title, description=:description WHERE jobID=:jobID;
+UPDATE Job_titles SET title=:title, description=:description WHERE jobID=:jobID;
 
 -- Delete job from button
-DELETE FROM job_titles WHERE jobID=:jobID;
+DELETE FROM Job_titles WHERE jobID=:jobID;
 
 -------- EMPLOYEE JOB TITLES PAGE QUERIES --------
 
 -- Populate page table
-SELECT * FROM employee_job_titles;
+SELECT * FROM Employee_job_titles;
 
 -- Add entry
-INSERT INTO employee_job_titles (jobID, employeeID) VALUES (:jobID, :employeeID);
+INSERT INTO Employee_job_titles (jobID, employeeID) VALUES (:jobID, :employeeID);
 
 -- Select entry based on jobID
-SELECT jobID, employeeID FROM employee_job_titles WHERE jobID=:jobID;
+SELECT jobID, employeeID FROM Employee_job_titles WHERE jobID=:jobID;
 
 -- Select entry based on employeeID
-SELECT jobID, employeeID FROM employee_job_titles WHERE employeeID=:employeeID;
+SELECT jobID, employeeID FROM Employee_job_titles WHERE employeeID=:employeeID;
 
 -- Update entry from button
-UPDATE employee_job_titles SET jobID=:jobID, employeeID=:employeeID WHERE jobID=::jobID AND employeeID=::employeeID;
+UPDATE Employee_job_titles SET jobID=:jobID, employeeID=:employeeID WHERE jobID=::jobID AND employeeID=::employeeID;
 
 -- Delete entry from button
-DELETE FROM employee_job_titles WHERE jobID=:jobID AND employeeID=:employeeID;
+DELETE FROM Employee_job_titles WHERE jobID=:jobID AND employeeID=:employeeID;
