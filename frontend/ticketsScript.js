@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', getEmployeeIDs(employeeSelect))
 document.addEventListener('DOMContentLoaded', function(event){
     var req = new XMLHttpRequest();
 
-    req.open("GET", "http://flip1.engr.oregonstate.edu:41575/tickets", true);
+    req.open("GET", "http://flip1.engr.oregonstate.edu:4598/tickets", true);
     req.addEventListener('load', function(){
         if (req.status >= 200 && req.status < 400){
             var response = JSON.parse(req.responseText);
@@ -399,7 +399,7 @@ var makeTable = function (tableData){
 
             //validate form inputs
             if (payload.ticketID !== "" && payload.eventID !== "" && payload.seat !== "" && payload.row !== "" && payload.section !== "" && payload.price !== "" && payload.paymentMethod !== "" && payload.soldToFanID !== "" && payload.isWillcall !== "" && payload.isValid !== ""){
-                req.open("PUT", "http://flip1.engr.oregonstate.edu:41575/tickets", true);
+                req.open("PUT", "http://flip1.engr.oregonstate.edu:4598/tickets", true);
                 req.setRequestHeader('Content-Type', 'application/json');
                 req.addEventListener('load', function(){
                 if (req.status >= 200 && req.status < 400){
@@ -415,7 +415,7 @@ var makeTable = function (tableData){
                     alert("Please fill complete all form fields.")
                 }
 
-                req.open("PUT", "http://flip1.engr.oregonstate.edu:41575/tickets", true);
+                req.open("PUT", "http://flip1.engr.oregonstate.edu:4598/tickets", true);
                 req.setRequestHeader('Content-Type', 'application/json');
                 req.addEventListener('load', function(){
                 if (req.status >= 200 && req.status < 400){
@@ -461,7 +461,7 @@ var makeTable = function (tableData){
 // get data from Events table
 function getEventIDs(eventSelect) {
     var req = new XMLHttpRequest();
-    req.open("GET", "http://flip1.engr.oregonstate.edu:41575/events", true);
+    req.open("GET", "http://flip1.engr.oregonstate.edu:4598/events", true);
     req.addEventListener('load', function(){
         if (req.status >= 200 && req.status < 400){
             var response = JSON.parse(req.responseText);
@@ -486,7 +486,7 @@ function appendEventID(eventInfo, eventSelect){
 function getFanIDs(fanSelect) {
     var req = new XMLHttpRequest();
 
-    req.open("GET", "http://flip1.engr.oregonstate.edu:41575/fans", true);
+    req.open("GET", "http://flip1.engr.oregonstate.edu:4598/fans", true);
     req.addEventListener('load', function(){
         if (req.status >= 200 && req.status < 400){
             var response = JSON.parse(req.responseText);
@@ -511,7 +511,7 @@ function appendFanID(fanInfo, fanSelect){
 function getEmployeeIDs(employeeSelect) {
     var req = new XMLHttpRequest();
 
-    req.open("GET", "http://flip1.engr.oregonstate.edu:41575/employees", true);
+    req.open("GET", "http://flip1.engr.oregonstate.edu:4598/employees", true);
     req.addEventListener('load', function(){
         if (req.status >= 200 && req.status < 400){
             var response = JSON.parse(req.responseText);
@@ -550,7 +550,7 @@ function makeRow(){
     
         //validate form inputs
         if (payload.eventID !== "" && payload.seat !== "" && payload.row !== "" && payload.section !== "" && payload.price !== "" && payload.paymentMethod !== "" && payload.soldByEmployeeID !== "" && payload.soldToFanID !== "" && payload.isWillcall !== "" && payload.isValid !== ""){
-            req.open("POST", "http://flip1.engr.oregonstate.edu:41575/tickets", true);
+            req.open("POST", "http://flip1.engr.oregonstate.edu:4598/tickets", true);
             req.setRequestHeader('Content-Type', 'application/json');
 
             req.addEventListener('load', function(){
@@ -577,7 +577,7 @@ function addDeleteListener(currentID){
         payload.ticketID = currentID;
         console.log(payload)
     
-        req.open("DELETE", "http://flip1.engr.oregonstate.edu:41575/tickets", true);
+        req.open("DELETE", "http://flip1.engr.oregonstate.edu:4598/tickets", true);
         req.setRequestHeader('Content-Type', 'application/json');
         req.addEventListener('load', function(){
             if (req.status >= 200 && req.status < 400){

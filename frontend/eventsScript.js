@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', dateFilter);
 document.addEventListener('DOMContentLoaded', function(event){
     var req = new XMLHttpRequest();
 
-    req.open("GET", "http://flip1.engr.oregonstate.edu:41575/events", true);
+    req.open("GET", "http://flip1.engr.oregonstate.edu:4598/events", true);
     req.addEventListener('load', function(){
         if (req.status >= 200 && req.status < 400){
             var response = JSON.parse(req.responseText);
@@ -298,7 +298,7 @@ var makeTable = function (tableData){
 
         //validate form inputs
         if (payload.eventID !== "" && payload.eventName !== "" && payload.musicType !== "" && payload.eventDate !== "" && payload.eventTime !== "" && payload.isCancelled !== ""){
-            req.open("PUT", "http://flip1.engr.oregonstate.edu:41575/events", true);
+            req.open("PUT", "http://flip1.engr.oregonstate.edu:4598/events", true);
             req.setRequestHeader('Content-Type', 'application/json');
             req.addEventListener('load', function(){
             if (req.status >= 200 && req.status < 400){
@@ -315,7 +315,7 @@ var makeTable = function (tableData){
                 alert("Please fill complete all form fields.")
             }
     
-            req.open("PUT", "http://flip1.engr.oregonstate.edu:41575/events", true);
+            req.open("PUT", "http://flip1.engr.oregonstate.edu:4598/events", true);
             req.setRequestHeader('Content-Type', 'application/json');
             req.addEventListener('load', function(){
             if (req.status >= 200 && req.status < 400){
@@ -371,7 +371,7 @@ function makeRow(){
     
         //validate form inputs
         if (payload.eventName !== "" && payload.musicType !== "" && payload.eventDate !== "" && payload.eventTime !== "" && payload.isCancelled !== ""){
-            req.open("POST", "http://flip1.engr.oregonstate.edu:41575/events", true);
+            req.open("POST", "http://flip1.engr.oregonstate.edu:4598/events", true);
             req.setRequestHeader('Content-Type', 'application/json');
 
             req.addEventListener('load', function(){
@@ -397,7 +397,7 @@ function addDeleteListener(currentID){
         var payload = {eventID:null};
         payload.eventID = currentID;
     
-        req.open("DELETE", "http://flip1.engr.oregonstate.edu:41575/events", true);
+        req.open("DELETE", "http://flip1.engr.oregonstate.edu:4598/events", true);
         req.setRequestHeader('Content-Type', 'application/json');
         req.addEventListener('load', function(){
             if (req.status >= 200 && req.status < 400){
@@ -425,7 +425,7 @@ function dateFilter(){
         
         //validate form inputs
         if (payload.dateFilter !== "" && payload.filterDate !== ""){
-            req.open("GET", "http://flip1.engr.oregonstate.edu:41575/events/" + payload.dateFilter + "/" + payload.filterDate, true);
+            req.open("GET", "http://flip1.engr.oregonstate.edu:4598/events/" + payload.dateFilter + "/" + payload.filterDate, true);
             req.setRequestHeader('Content-Type', 'application/json');
         
             req.addEventListener('load', function(){

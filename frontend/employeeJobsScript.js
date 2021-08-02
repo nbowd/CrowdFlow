@@ -1,4 +1,4 @@
-const baseUrl = "http://localhost:4598";
+const baseUrl = "http://flip1.engr.oregonstate.edu:4598";
 // When <body> gets loaded on html page this gets current rows
 const onLoad = async () => {
     document.getElementById('empJobs-tbody').innerHTML = '';
