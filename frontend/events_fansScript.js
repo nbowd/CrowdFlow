@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', getFanIDs(fanSelect))
 document.addEventListener('DOMContentLoaded', function(event){
     var req = new XMLHttpRequest();
 
-    req.open("GET", "http://flip1.engr.oregonstate.edu:41575/events_fans", true);
+    req.open("GET", "http://flip1.engr.oregonstate.edu:4598/events_fans", true);
     req.addEventListener('load', function(){
         if (req.status >= 200 && req.status < 400){
             var response = JSON.parse(req.responseText);
@@ -168,7 +168,7 @@ var makeTable = function (tableData){
 
         //validate form inputs
         if (payload.eventID !== "" && payload.fanID !== ""){
-            req.open("PUT", "http://flip1.engr.oregonstate.edu:41575/events_fans", true);
+            req.open("PUT", "http://flip1.engr.oregonstate.edu:4598/events_fans", true);
             req.setRequestHeader('Content-Type', 'application/json');
             req.addEventListener('load', function(){
             if (req.status >= 200 && req.status < 400){
@@ -184,7 +184,7 @@ var makeTable = function (tableData){
                 alert("Please fill complete all form fields.")
             }
 
-            req.open("PUT", "http://flip1.engr.oregonstate.edu:41575/events_fans", true);
+            req.open("PUT", "http://flip1.engr.oregonstate.edu:4598/events_fans", true);
             req.setRequestHeader('Content-Type', 'application/json');
             req.addEventListener('load', function(){
             if (req.status >= 200 && req.status < 400){
@@ -230,7 +230,7 @@ var makeTable = function (tableData){
 // get data from Events table
 function getEventIDs(eventSelect) {
     var req = new XMLHttpRequest();
-    req.open("GET", "http://flip1.engr.oregonstate.edu:41575/events", true);
+    req.open("GET", "http://flip1.engr.oregonstate.edu:4598/events", true);
     req.addEventListener('load', function(){
         if (req.status >= 200 && req.status < 400){
             var response = JSON.parse(req.responseText);
@@ -255,7 +255,7 @@ function appendEventID(eventInfo, eventSelect){
 function getFanIDs(fanSelect) {
     var req = new XMLHttpRequest();
 
-    req.open("GET", "http://flip1.engr.oregonstate.edu:41575/fans", true);
+    req.open("GET", "http://flip1.engr.oregonstate.edu:4598/fans", true);
     req.addEventListener('load', function(){
         if (req.status >= 200 && req.status < 400){
             var response = JSON.parse(req.responseText);
@@ -286,7 +286,7 @@ function makeRow(){
     
         //validate form inputs
         if (payload.eventID !== "" && payload.fanID !== ""){
-            req.open("POST", "http://flip1.engr.oregonstate.edu:41575/events_fans", true);
+            req.open("POST", "http://flip1.engr.oregonstate.edu:4598/events_fans", true);
             req.setRequestHeader('Content-Type', 'application/json');
 
             req.addEventListener('load', function(){
@@ -314,7 +314,7 @@ function addDeleteListener(currentEventID, currentFanID){
         payload.fanID = currentFanID;
         console.log(payload)
     
-        req.open("DELETE", "http://flip1.engr.oregonstate.edu:41575/events_fans", true);
+        req.open("DELETE", "http://flip1.engr.oregonstate.edu:4598/events_fans", true);
         req.setRequestHeader('Content-Type', 'application/json');
         req.addEventListener('load', function(){
             if (req.status >= 200 && req.status < 400){
