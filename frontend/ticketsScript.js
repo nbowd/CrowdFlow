@@ -526,7 +526,7 @@ function getEmployeeIDs(employeeSelect) {
 function appendEmployeeID(employeeInfo, employeeSelect){
     employeeInfo['rows'].forEach(element => {
         var newOption = document.createElement('option');
-        newOption.setAttribute('value', element['employeeId'])
+        newOption.setAttribute('value', element['employeeID'])
         newOption.text = element['firstName'] + " " + element['lastName']
         employeeSelect.appendChild(newOption);
     });
