@@ -218,6 +218,8 @@ var makeTable = function (tableData){
     other.setAttribute('value', 'other')
     other.text = "Other"
     musicTypeSelect.appendChild(other);
+    
+    document.getElementById('musicTypeUpdate').value = entry['musicType']
 
     // update event date
     var eventDateLabel = document.createElement('label');
@@ -274,6 +276,8 @@ var makeTable = function (tableData){
     noOption.setAttribute('value', '0')
     noOption.text = "No"
     isCancelledSelect.appendChild(noOption);
+        
+    document.getElementById('isCancelledUpdate').value = entry['isCancelled']
 
     // submit update
     var submitUpdate = document.createElement('input');
