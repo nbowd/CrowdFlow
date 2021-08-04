@@ -39,8 +39,6 @@ var makeTable = function (tableData){
     var lastChild = document.body.lastChild;
     if (lastChild.id == 'currentTable'){
         document.body.removeChild(lastChild);
-        var lastChild = document.body.lastChild;
-        document.body.removeChild(lastChild);
     }
 
     // create table
