@@ -224,7 +224,7 @@ var makeTable = function (tableData){
         rowSelect.setAttribute('required', 'required');
         updateForm.appendChild(rowSelect);
 
-        var rowOptions = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O']
+        var rowOptions = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o']
         for (row of rowOptions) {
             var newOption = document.createElement('option');
             newOption.setAttribute('value', row);
@@ -246,7 +246,7 @@ var makeTable = function (tableData){
         sectionSelect.setAttribute('required', 'required');
         updateForm.appendChild(sectionSelect);
 
-        var sectionOptions = ['AAA', 'BBB', 'CCC', 'DDD', 'EEE']
+        var sectionOptions = ['aaa', 'bbb', 'ccc', 'ddd', 'eee']
         for (section of sectionOptions) {
             var newOption = document.createElement('option');
             newOption.setAttribute('value', section);
@@ -285,7 +285,7 @@ var makeTable = function (tableData){
         paymentMethodSelect.setAttribute('required', 'required');
         updateForm.appendChild(paymentMethodSelect);
 
-        var paymentMethodOptions = ['Cash', 'Visa', 'MasterCard', 'Amex', 'Discover']
+        var paymentMethodOptions = ['cash', 'visa', 'mastercard', 'amex', 'discover']
         for (paymentMethod of paymentMethodOptions) {
             var newOption = document.createElement('option');
             newOption.setAttribute('value', paymentMethod);
