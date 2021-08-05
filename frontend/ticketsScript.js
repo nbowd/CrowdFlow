@@ -209,6 +209,8 @@ var makeTable = function (tableData){
             newOption.text = n;
             seatSelect.appendChild(newOption);
         };
+            
+        document.getElementById('seatUpdate').value = entry['seat']
 
         // update row
         var rowLabel = document.createElement('label');
@@ -231,6 +233,8 @@ var makeTable = function (tableData){
             newOption.text = row;
             rowSelect.appendChild(newOption);
         }
+            
+        document.getElementById('rowUpdate').value = entry['row']
 
         // update section
         var sectionLabel = document.createElement('label');
@@ -253,6 +257,8 @@ var makeTable = function (tableData){
             newOption.text = section;
             sectionSelect.appendChild(newOption);
         }
+            
+        document.getElementById('sectionUpdate').value = entry['section']
 
         // update price
         var priceLabel = document.createElement('label');
@@ -292,6 +298,8 @@ var makeTable = function (tableData){
             newOption.text = paymentMethod;
             paymentMethodSelect.appendChild(newOption);
         }
+            
+        document.getElementById('paymentMethodUpdate').value = entry['paymentMethod']
 
         // update sold by
         var soldByLabel = document.createElement('label');
@@ -345,6 +353,8 @@ var makeTable = function (tableData){
         newOption.setAttribute('value', 0);
         newOption.text = "No";
         willCallSelect.appendChild(newOption);
+            
+        document.getElementById('isWillcallUpdate').value = entry['isWillcall']
 
         // update valid status
         var isValidLabel = document.createElement('label');
@@ -369,6 +379,8 @@ var makeTable = function (tableData){
         newOption.setAttribute('value', 0);
         newOption.text = "No";
         isValidSelect.appendChild(newOption);
+            
+        document.getElementById('isValidUpdate').value = entry['isValid']
 
         // submit update
         var submitUpdate = document.createElement('input');
@@ -555,6 +567,7 @@ function makeRow(){
                 if (req.status >= 200 && req.status < 400){
                     var response = JSON.parse(req.responseText);
                     makeTable(response);
+                    location.reload()
                 } else {
                     console.log("Error in network request: " + req.statusText) 
             }
