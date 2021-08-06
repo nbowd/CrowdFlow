@@ -314,6 +314,11 @@ var makeTable = function (tableData){
         soldBySelect.setAttribute('value', entry['soldByEmployeeID']);
         updateForm.appendChild(soldBySelect);
         getEmployeeIDs(soldBySelect)
+            
+        var newOption = document.createElement('option');
+        newOption.setAttribute('value', null)
+        newOption.text = 'none'
+        soldBySelect.appendChild(newOption);
 
         // update sold to
         var soldToLabel = document.createElement('label');
