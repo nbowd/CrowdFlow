@@ -13,11 +13,8 @@ const jobFilterQuery = "SELECT jobID, employeeID FROM Employee_job_titles WHERE 
 // Select entry based on employeeID
 const employeeFilterQuery = "SELECT jobID, employeeID FROM Employee_job_titles WHERE employeeID=?";
 
-// Update entry from button
-const updateQuery = "UPDATE Employee_job_titles SET jobID=?, employeeID=? WHERE employeeID=?";
-
 // Delete entry from button
-const deleteQuery = "DELETE FROM Employee_job_titles WHERE employeeID=?";
+const deleteQuery = "DELETE FROM Employee_job_titles WHERE jobID=? AND employeeID=?";
 
 // ROUTES
 const getAllData = (response) => {
@@ -68,22 +65,8 @@ employeesJobTitlesRouter.post('/', (request,response,next) => {
   });
 });
 
-employeesJobTitlesRouter.put('/', (request,response,next) => {
-  var {jobID, employeeID} = request.body;
-
-  mysql.pool.query(updateQuery,
-    [jobID, employeeID, request.query.id],
-    (err, result) => {
-    if(err){
-      next(err);
-      return;
-    }
-    getAllData(response);
-  });
-});
-
 employeesJobTitlesRouter.delete('/', (request,response,next) => {
-  mysql.pool.query(deleteQuery, [request.query.id], (err, result) => {
+  mysql.pool.query(deleteQuery, [request.query.jid, request.query.eid], (err, result) => {
     if(err){
       next(err);
       return;

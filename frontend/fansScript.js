@@ -1,4 +1,5 @@
-const baseUrl = "http://flip1.engr.oregonstate.edu:4598";
+const baseUrl = "http://localhost:4598";
+// const baseUrl = "http://flip1.engr.oregonstate.edu:4598";
 // When <body> gets loaded on html page this gets current rows
 const onLoad = async () => {
     const response = await axios.get(`${baseUrl}/fans`);
@@ -138,7 +139,7 @@ const openEdit = (targetRow, modTarget) => {
     const currentValues = targetRow.querySelectorAll('td') // All cells
     let rowInfo = []
     Object.values(currentValues).forEach(item => rowInfo.push(item.innerText)) // Strips away other attributes
-
+    console.log(rowInfo);
     openModal(modTarget)
 
     document.querySelector('#id-edit').value = rowInfo[0]
@@ -149,7 +150,9 @@ const openEdit = (targetRow, modTarget) => {
     document.querySelector('#phone-edit').value = rowInfo[5]
     document.querySelector('#email-edit').value = rowInfo[6]
     if (rowInfo[7] === "Yes") {
-        document.querySelector('#membership-edit').checked = 'true'
+        document.querySelector('#membership-edit').checked = true
+    } else if (rowInfo[7] ===  "No") {
+        document.querySelector('#membership-edit').checked = false
     }
     document.querySelector('#comment-edit').value = rowInfo[8]
 }
