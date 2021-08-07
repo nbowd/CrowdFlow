@@ -36,8 +36,6 @@ var makeTable = function (tableData){
     var lastChild = document.body.lastChild;
     if (lastChild.id == 'currentTable'){
         document.body.removeChild(lastChild);
-        var lastChild = document.body.lastChild;
-        document.body.removeChild(lastChild);
     }
 
     // create table
@@ -293,6 +291,7 @@ function makeRow(){
                 if (req.status >= 200 && req.status < 400){
                     var response = JSON.parse(req.responseText);
                     makeTable(response);
+                    location.reload()
                 } else {
                     console.log("Error in network request: " + req.statusText) 
             }

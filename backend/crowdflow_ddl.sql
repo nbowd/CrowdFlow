@@ -17,7 +17,7 @@ CREATE TABLE `Events` (
 -- Dumping data for table `Events`
 --
 
-INSERT INTO `Events` VALUES (84, 'Test Show 1', 'Rock', '2013-02-14', '19:30:00', 0), (582, 'Test Show 2', 'Hip Hop', '2017-06-17', '19:05:00', 0), (978, 'Test Show 3', 'Blues', '2020-03-13', '20:00:00', 1);
+INSERT INTO `Events` VALUES (84, 'Test Show 1', 'rock', '2013-02-14', '19:30:00', 0), (582, 'Test Show 2', 'hipHop', '2017-06-17', '19:05:00', 0), (978, 'Test Show 3', 'blues', '2020-03-13', '20:00:00', 1);
 
 -- Table structure for `Fans`
 
@@ -117,7 +117,7 @@ CREATE TABLE `Tickets` (
     `isValid` TINYINT(1) NOT NULL,
     PRIMARY KEY (`ticketID`),
     FOREIGN KEY (`eventID`) REFERENCES `Events`(`eventID`) ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (`soldByEmployeeID`) REFERENCES `Employees`(`employeeID`) ON DELETE CASCADE ON UPDATE CASCADE,
+    FOREIGN KEY (`soldByEmployeeID`) REFERENCES `Employees`(`employeeID`) ON DELETE NULL ON UPDATE CASCADE,
     FOREIGN KEY (`soldToFanID`) REFERENCES `Fans`(`fanID`) ON DELETE CASCADE ON UPDATE CASCADE  
 );
 

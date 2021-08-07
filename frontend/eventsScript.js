@@ -31,8 +31,6 @@ var makeTable = function (tableData){
     var lastChild = document.body.lastChild;
     if (lastChild.id == 'currentTable'){
         document.body.removeChild(lastChild);
-        var lastChild = document.body.lastChild;
-        document.body.removeChild(lastChild);
     }
 
     // create table
@@ -220,6 +218,8 @@ var makeTable = function (tableData){
     other.setAttribute('value', 'other')
     other.text = "Other"
     musicTypeSelect.appendChild(other);
+    
+    document.getElementById('musicTypeUpdate').value = entry['musicType']
 
     // update event date
     var eventDateLabel = document.createElement('label');
@@ -276,6 +276,8 @@ var makeTable = function (tableData){
     noOption.setAttribute('value', '0')
     noOption.text = "No"
     isCancelledSelect.appendChild(noOption);
+        
+    document.getElementById('isCancelledUpdate').value = entry['isCancelled']
 
     // submit update
     var submitUpdate = document.createElement('input');
@@ -378,6 +380,7 @@ function makeRow(){
                 if (req.status >= 200 && req.status < 400){
                     var response = JSON.parse(req.responseText);
                     makeTable(response);
+                    location.reload()
                 } else {
                     console.log("Error in network request: " + req.statusText) 
             }
