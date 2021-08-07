@@ -18,7 +18,6 @@ const deleteQuery = "DELETE FROM Employee_job_titles WHERE jobID=? AND employeeI
 
 // ROUTES
 const getAllData = (response) => {
-  // err and fields are important for pool.query apparently
   mysql.pool.query(getAllQuery, (err, rows, fields) => {
       if(err){
           next(err);
