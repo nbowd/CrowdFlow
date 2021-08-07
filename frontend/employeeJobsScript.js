@@ -21,13 +21,6 @@ const makeCell = (tr, rowProp) => {
 const makeOptions = (tr, id, editTarget) => {
     let optionsCell = tr.appendChild(document.createElement('td'));
 
-    let UpdateButton = optionsCell.appendChild(document.createElement('input'));
-    UpdateButton.type = 'button';
-    UpdateButton.value = 'Update';
-    UpdateButton.id = id
-    UpdateButton.dataset.modalTarget = editTarget
-    UpdateButton.classList.add('table-button')
-
     let DeleteButton = optionsCell.appendChild(document.createElement('input'));
     DeleteButton.type = 'button';
     DeleteButton.value = 'Delete';
@@ -84,61 +77,25 @@ const empJobsTable = document.getElementById('empJobs-table')
 empJobsTable && empJobsTable.addEventListener('click', async (event) => {
     let target = event.target
 
-    // Update button
-    if (target.value === 'Update') {
-        let modTarget = document.querySelector(target.dataset.modalTarget)
-        let targetRow = document.querySelector(`#row${target.id}`)
-        openEdit(targetRow, modTarget)
-    }
-
     // Delete button
     if (target.value === 'Delete') {
         let modTarget = document.querySelector(target.dataset.modalTarget)
-        openDelete(modTarget, target.id)
+        let targetRow = target.closest('tr')
+        openDelete(targetRow, modTarget)
     }
 })
 
-// This is essential a wrapper function for openModal, gathers all the current row values from the table and creates a list used to display those values on the 
-// edit modal. Sets up display information only.
-// Inputs: modal target, current row object
-const openEdit = (targetRow, modTarget) => {
+// Another wrapper but for delete, opens the delete modal and listens for the delete button press. Using the id passed to it to submit a delete request.
+// Inputs: modal target, id of fan to be deleted
+const openDelete = (targetRow, modTarget) => {
     const currentValues = targetRow.querySelectorAll('td') // All cells
     let rowInfo = []
     Object.values(currentValues).forEach(item => rowInfo.push(item.innerText)) // Strips away other attributes
 
     openModal(modTarget)
 
-    document.querySelector('#jobID-edit').value = rowInfo[0]
-    document.querySelector('#employeeID-edit').value = rowInfo[1]
-
-}
-
-// Update functionality. Listens for edit form submit, then grabs the changed information from the modal, and makes a put request. Clears the table and repopulates.
-const submitEdit = document.getElementById('empJobs-edit')
-submitEdit && submitEdit.addEventListener('submit', async (event) => {
-    event.preventDefault()
-
-    let context = {
-        jobID: submitEdit.elements.jobID.value,
-        employeeID: submitEdit.elements.employeeID.value
-    }
-
-    let response = await axios.put(`${baseUrl}/emp_jobs?id=${submitEdit.elements.employeeID.value}`, context);
-    const rowsArray = response.data.rows;
-    document.getElementById('empJobs-tbody').innerHTML = '';
-    closeModal(submitEdit.closest('.modal'))
-    for (let row in rowsArray) {
-        makeRow(rowsArray[row]); // Repopulates rows       
-    }
-})
-
-// Another wrapper but for delete, opens the delete modal and listens for the delete button press. Using the id passed to it to submit a delete request.
-// Inputs: modal target, id of fan to be deleted
-const openDelete = (modTarget, id) => {
-    openModal(modTarget)
-
     document.getElementById('delete-button').addEventListener('click', async () => {
-        let response = await axios.delete(`${baseUrl}/emp_jobs?id=${id}`)
+        let response = await axios.delete(`${baseUrl}/emp_jobs?jid=${rowInfo[0]}&eid=${rowInfo[1]}`)
         closeModal(modTarget)
         const rowsArray = response.data.rows;
 
@@ -163,7 +120,7 @@ Filter && Filter.addEventListener('submit', async (event) => {
     if (jidFilter) {
         let response = await axios.get(`${baseUrl}/emp_jobs/jobs?id=${jidFilter}`)
         const rowsArray = response.data.rows;
-        console.log(rowsArray);
+        
 
         document.getElementById('empJobs-tbody').innerHTML = ''; // Resets table body for repopulation
 
@@ -171,11 +128,8 @@ Filter && Filter.addEventListener('submit', async (event) => {
             makeRow(rowsArray[row]); // Repopulates rows       
         }
     } else if (eidFilter) {
-        console.log(eidFilter);
-        console.log(`${baseUrl}/employees?id=${eidFilter}`);
         let response = await axios.get(`${baseUrl}/emp_jobs/employees?id=${eidFilter}`)
         const rowsArray = response.data.rows;
-        console.log(rowsArray);
         document.getElementById('empJobs-tbody').innerHTML = ''; // Resets table body for repopulation
 
         for (let row in rowsArray) {
