@@ -316,7 +316,7 @@ var makeTable = function (tableData){
         getEmployeeIDs(soldBySelect)
             
         var newOption = document.createElement('option');
-        newOption.setAttribute('value', null)
+        newOption.setAttribute('value', "")
         newOption.text = 'none'
         soldBySelect.appendChild(newOption);
 
@@ -410,7 +410,10 @@ var makeTable = function (tableData){
             payload.soldToFanID = document.getElementById('soldToFanIDUpdate').value;
             payload.isWillcall = document.getElementById('isWillcallUpdate').value;
             payload.isValid = document.getElementById('isValidUpdate').value;
-            console.log(payload)
+            
+            if (payload.soldByEmployeeID === ""){
+                payload.soldByEmployeeID = null
+            }
 
             //validate form inputs
             if (payload.ticketID !== "" && payload.eventID !== "" && payload.seat !== "" && payload.row !== "" && payload.section !== "" && payload.price !== "" && payload.paymentMethod !== "" && payload.soldToFanID !== "" && payload.isWillcall !== "" && payload.isValid !== ""){
@@ -420,6 +423,7 @@ var makeTable = function (tableData){
                 if (req.status >= 200 && req.status < 400){
                     var response = JSON.parse(req.responseText);
                     makeTable(response);
+                    location.reload()
             } else {
                 console.log("Error in network request: " + req.statusText) 
                 }
@@ -436,6 +440,7 @@ var makeTable = function (tableData){
                 if (req.status >= 200 && req.status < 400){
                     var response = JSON.parse(req.responseText);
                     makeTable(response);
+                    location.reload()
                 } else {
                     console.log("Error in network request: " + req.statusText) 
                     }
@@ -562,9 +567,13 @@ function makeRow(){
         payload.soldToFanID = document.getElementById('soldToFanIDAddInput').value;
         payload.isWillcall = document.getElementById('isWillcallAddInput').value;
         payload.isValid = document.getElementById('isValidAddInput').value;
+        
+        if (payload.soldByEmployeeID === ""){
+                payload.soldByEmployeeID = null
+            }
     
         //validate form inputs
-        if (payload.eventID !== "" && payload.seat !== "" && payload.row !== "" && payload.section !== "" && payload.price !== "" && payload.paymentMethod !== "" && payload.soldByEmployeeID !== "" && payload.soldToFanID !== "" && payload.isWillcall !== "" && payload.isValid !== ""){
+        if (payload.eventID !== "" && payload.seat !== "" && payload.row !== "" && payload.section !== "" && payload.price !== "" && payload.paymentMethod !== "" && payload.soldToFanID !== "" && payload.isWillcall !== "" && payload.isValid !== ""){
             req.open("POST", "http://flip1.engr.oregonstate.edu:4598/tickets", true);
             req.setRequestHeader('Content-Type', 'application/json');
 
@@ -599,6 +608,7 @@ function addDeleteListener(currentID){
             if (req.status >= 200 && req.status < 400){
                 var response = JSON.parse(req.responseText);
                 makeTable(response);
+                location.reload()
             } else {
                 console.log("Error in network request: " + req.statusText) 
             }
