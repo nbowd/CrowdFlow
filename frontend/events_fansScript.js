@@ -172,6 +172,7 @@ var makeTable = function (tableData){
             if (req.status >= 200 && req.status < 400){
                 var response = JSON.parse(req.responseText);
                 makeTable(response);
+                location.reload()
         } else {
             console.log("Error in network request: " + req.statusText) 
             }
@@ -188,6 +189,7 @@ var makeTable = function (tableData){
             if (req.status >= 200 && req.status < 400){
                 var response = JSON.parse(req.responseText);
                 makeTable(response);
+                location.reload()
             } else {
                 console.log("Error in network request: " + req.statusText) 
                 }
@@ -319,6 +321,7 @@ function addDeleteListener(currentEventID, currentFanID){
             if (req.status >= 200 && req.status < 400){
                 var response = JSON.parse(req.responseText);
                 makeTable(response);
+                location.reload()
             } else {
                 console.log("Error in network request: " + req.statusText) 
             }
