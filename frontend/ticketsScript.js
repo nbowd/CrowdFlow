@@ -567,6 +567,10 @@ function makeRow(){
         payload.soldToFanID = document.getElementById('soldToFanIDAddInput').value;
         payload.isWillcall = document.getElementById('isWillcallAddInput').value;
         payload.isValid = document.getElementById('isValidAddInput').value;
+        
+        if (payload.soldByEmployeeID === ""){
+                payload.soldByEmployeeID = null
+            }
     
         //validate form inputs
         if (payload.eventID !== "" && payload.seat !== "" && payload.row !== "" && payload.section !== "" && payload.price !== "" && payload.paymentMethod !== "" && payload.soldToFanID !== "" && payload.isWillcall !== "" && payload.isValid !== ""){
